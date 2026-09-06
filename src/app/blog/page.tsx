@@ -377,20 +377,18 @@ export default function BlogPage() {
                           key={opt.id}
                           disabled={hasVoted}
                           onClick={() => handleVote(activePost.poll!.id, opt.id)}
-                          className={`relative w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all cursor-pointer overflow-hidden ${
-                            isSelected
+                          className={`relative w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all cursor-pointer overflow-hidden ${isSelected
                               ? "border-zinc-950 bg-zinc-900 text-white shadow-sm"
                               : hasVoted
-                              ? "border-zinc-200 bg-white text-zinc-800 cursor-default"
-                              : "border-zinc-200 bg-white hover:border-zinc-400 text-zinc-800"
-                          }`}
+                                ? "border-zinc-200 bg-white text-zinc-800 cursor-default"
+                                : "border-zinc-200 bg-white hover:border-zinc-400 text-zinc-800"
+                            }`}
                         >
                           {/* Live percentage fill */}
                           {hasVoted && (
                             <div
-                              className={`absolute inset-y-0 left-0 transition-all duration-700 ease-out ${
-                                isSelected ? "bg-zinc-800" : "bg-zinc-100"
-                              }`}
+                              className={`absolute inset-y-0 left-0 transition-all duration-700 ease-out ${isSelected ? "bg-zinc-800" : "bg-zinc-100"
+                                }`}
                               style={{ width: `${percentage}%` }}
                             />
                           )}
@@ -442,11 +440,10 @@ export default function BlogPage() {
                                 [activePost.id]: idx,
                               }))
                             }
-                            className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-between ${
-                              isSelected
+                            className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-between ${isSelected
                                 ? "bg-white text-zinc-950 border-white font-medium"
                                 : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-zinc-600"
-                            }`}
+                              }`}
                           >
                             <span>{opt.label}</span>
                             <span className="text-xs font-mono-tech opacity-60">

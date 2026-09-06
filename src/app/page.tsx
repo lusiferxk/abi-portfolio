@@ -87,6 +87,7 @@ export default function Home() {
   const [isRotating, setIsRotating] = useState<boolean>(false);
   const [isCanvasOpen, setIsCanvasOpen] = useState<boolean>(false);
   const [recentPosts, setRecentPosts] = useState<BlogPostPreview[]>([]);
+  const [isBlogHovered, setIsBlogHovered] = useState<boolean>(false);
 
   // Contact form state
   const [formData, setFormData] = useState({
@@ -539,6 +540,8 @@ export default function Home() {
 
           <a
             href="#blog"
+            onMouseEnter={() => setIsBlogHovered(true)}
+            onMouseLeave={() => setIsBlogHovered(false)}
             className="text-xs sm:text-sm font-mono-tech uppercase tracking-widest text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 group cursor-pointer text-left"
           >
             <span>Blog</span>
@@ -556,18 +559,32 @@ export default function Home() {
 
         {/* Desk and Sitting Hero Person Layered with 3D Depth Transitions */}
         <div className="absolute inset-x-0 bottom-0 flex justify-center items-end pointer-events-none">
-          {/* hero-desk.png (Background 3D Layer) */}
+          {/* Desk 3D Layer (Crossfades between hero-desk.png and desk_2.png on Blog hover) */}
           <div
             style={deskStyle}
             className="relative z-10 w-full flex justify-center items-end"
           >
+            {/* Default Hero Desk */}
             <Image
               src="/hero-desk.png"
               alt="Hero Desk"
               width={1200}
               height={1500}
               priority
-              className="w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%]"
+              className={`w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
+                isBlogHovered ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
+            />
+            {/* Alternate Desk on Blog Hover */}
+            <Image
+              src="/desk_2.png"
+              alt="Hero Desk - Blog Mode"
+              width={1200}
+              height={1500}
+              priority
+              className={`absolute inset-0 mx-auto w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
+                isBlogHovered ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
             />
           </div>
 

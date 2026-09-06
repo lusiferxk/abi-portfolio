@@ -75,8 +75,8 @@ export default function BuildWorld() {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={`shrink-0 px-4 py-2 rounded-full text-xs font-mono-tech transition-all border ${activeFilter === filter
-                      ? "bg-zinc-950 text-white border-zinc-950 shadow-md scale-105"
-                      : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
+                    ? "bg-zinc-950 text-white border-zinc-950 shadow-md scale-105"
+                    : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
                     }`}
                 >
                   {filter}

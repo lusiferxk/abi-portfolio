@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 export interface CertificateItem {
@@ -365,6 +365,9 @@ export const certificatesList: CertificateItem[] = [
   },
 ];
 
+// Global ref for drag movement detection across cards
+let globalDragMoved = 0;
+
 function CertificateCard({
   cert,
   trackPrefix,
@@ -374,47 +377,97 @@ function CertificateCard({
   trackPrefix: string;
   isDuplicate?: boolean;
 }) {
+  const [tilt, setTilt] = useState({ x: 0, y: 0, glareX: 50, glareY: 50, isHovered: false });
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -6.5;
+    const rotateY = ((x - centerX) / centerX) * 6.5;
+    const glareX = (x / rect.width) * 100;
+    const glareY = (y / rect.height) * 100;
+    setTilt({ x: rotateX, y: rotateY, glareX, glareY, isHovered: true });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0, glareX: 50, glareY: 50, isHovered: false });
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (globalDragMoved > 6) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   return (
     <a
+      ref={cardRef}
       key={`${trackPrefix}-${cert.id}`}
       href={cert.credentialUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onDragStart={(e) => e.preventDefault()}
       tabIndex={isDuplicate ? -1 : undefined}
       aria-hidden={isDuplicate ? "true" : undefined}
-      className="w-[290px] sm:w-[320px] md:w-[350px] min-h-[340px] sm:min-h-[360px] p-6 sm:p-7 rounded-3xl bg-zinc-50/80 hover:bg-white border border-zinc-200/90 hover:border-zinc-950 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-start shrink-0 group transform hover:-translate-y-1 block cursor-pointer"
+      style={{
+        transform: tilt.isHovered
+          ? `perspective(1000px) rotateX(${tilt.x.toFixed(2)}deg) rotateY(${tilt.y.toFixed(2)}deg) translateY(-8px) scale3d(1.02, 1.02, 1.02)`
+          : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale3d(1, 1, 1)",
+        transition: tilt.isHovered
+          ? "transform 0.12s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease-out, border-color 0.3s ease-out"
+          : "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease-out, border-color 0.3s ease-out",
+      }}
+      className="relative w-[290px] sm:w-[320px] md:w-[350px] min-h-[340px] sm:min-h-[360px] p-6 sm:p-7 rounded-3xl bg-zinc-50/85 hover:bg-white border border-zinc-200/90 hover:border-zinc-950 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_24px_50px_rgba(0,0,0,0.09)] flex flex-col justify-start shrink-0 group block select-none cursor-pointer overflow-hidden will-change-transform"
     >
+      {/* Dynamic subtle holographic glass sheen overlay following cursor */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-3xl transition-opacity duration-300"
+        style={{
+          opacity: tilt.isHovered ? 0.35 : 0,
+          background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 245, 0.3) 45%, transparent 75%)`,
+        }}
+      />
+
       {/* Top: Card Header & Number */}
-      <div className="flex items-center justify-between text-xs font-mono-tech text-zinc-400 mb-4 pb-2 border-b border-zinc-200/60">
+      <div className="relative z-10 flex items-center justify-between text-xs font-mono-tech text-zinc-400 mb-4 pb-2 border-b border-zinc-200/60">
         <span className="uppercase tracking-wider font-mono-tech truncate max-w-[180px]">
           ID: {cert.credentialId}
         </span>
-        <span className="font-bold text-zinc-900 group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
+        <span className="font-bold text-zinc-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform flex items-center gap-1">
           {cert.num} ↗
         </span>
       </div>
 
       {/* Clean Official Badge (No background, pure badge artwork) */}
       {cert.badgeImage && (
-        <div className="my-4 flex items-center justify-center">
+        <div className="relative z-10 my-4 flex items-center justify-center pointer-events-none">
           <Image
             src={cert.badgeImage}
             alt={`${cert.title} Badge`}
             width={130}
             height={130}
             unoptimized
-            className="w-28 h-28 sm:w-32 sm:h-32 object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+            className="w-28 h-28 sm:w-32 sm:h-32 object-contain mix-blend-multiply group-hover:scale-110 group-hover:-translate-y-1.5 group-hover:rotate-2 transition-all duration-500 ease-out pointer-events-none drop-shadow-sm"
           />
         </div>
       )}
 
       {/* Certificate Title */}
-      <h3 className="text-lg sm:text-xl font-bold font-heading tracking-tight text-zinc-950 leading-snug line-clamp-2 uppercase mt-2">
+      <h3 className="relative z-10 text-lg sm:text-xl font-bold font-heading tracking-tight text-zinc-950 leading-snug line-clamp-2 uppercase mt-2 group-hover:text-black transition-colors">
         {cert.title}
       </h3>
 
       {/* Description */}
-      <p className="text-xs sm:text-sm font-sans-clean text-zinc-600 leading-relaxed line-clamp-3 mt-3">
+      <p className="relative z-10 text-xs sm:text-sm font-sans-clean text-zinc-600 leading-relaxed line-clamp-3 mt-3">
         {cert.description}
       </p>
     </a>
@@ -422,16 +475,213 @@ function CertificateCard({
 }
 
 export default function CertificationsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const streamContainerRef = useRef<HTMLDivElement>(null);
+
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<"left" | "right">("left");
+  const [speedMultiplier, setSpeedMultiplier] = useState<1 | 2>(1);
+  const [isDragging, setIsDragging] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Physics animation state references (bypasses React state latency for 120fps smoothness)
+  const isPausedRef = useRef(false);
+  const directionRef = useRef<-1 | 1>(-1); // -1 = left, 1 = right
+  const speedMultiplierRef = useRef(1);
+  const isDraggingRef = useRef(false);
+  const isHoveredRef = useRef(false);
+  const currentSpeedRef = useRef(0.9);
+  const skewRef = useRef(0);
+  const startXRef = useRef(0);
+  const lastXRef = useRef(0);
+  const lastTimeRef = useRef(0);
+  const velocityRef = useRef(0);
+  const offsetRef = useRef(0);
+  const dragMovedRef = useRef(0);
+  const lastScrollYRef = useRef(0);
+
+  // Sync state into refs
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
+
+  useEffect(() => {
+    directionRef.current = direction === "left" ? -1 : 1;
+  }, [direction]);
+
+  useEffect(() => {
+    speedMultiplierRef.current = speedMultiplier;
+  }, [speedMultiplier]);
+
+  // Viewport entrance reveal
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Window scroll-velocity reactivity: vertical scroll smoothly accelerates stream
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const deltaY = currentScrollY - lastScrollYRef.current;
+      lastScrollYRef.current = currentScrollY;
+
+      if (Math.abs(deltaY) > 1 && !isDraggingRef.current) {
+        // Boost momentum in current stream direction proportional to vertical scroll speed
+        velocityRef.current += directionRef.current * Math.min(Math.abs(deltaY) * 0.06, 5);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Main high-performance physics animation loop
+  useEffect(() => {
+    let animId: number;
+
+    const animate = () => {
+      if (trackRef.current) {
+        const totalWidth = trackRef.current.scrollWidth;
+        const halfWidth = totalWidth / 2;
+
+        if (halfWidth > 0) {
+          // Smooth cruise speed interpolation (gentle slow-motion drift on hover instead of jarring stop)
+          const targetCruiseSpeed = isPausedRef.current
+            ? 0
+            : isHoveredRef.current
+            ? 0.15
+            : 0.9 * speedMultiplierRef.current;
+
+          currentSpeedRef.current += (targetCruiseSpeed - currentSpeedRef.current) * 0.08;
+
+          // Standard progression
+          if (!isDraggingRef.current) {
+            offsetRef.current += currentSpeedRef.current * directionRef.current;
+          }
+
+          // Apply momentum & friction deceleration
+          if (!isDraggingRef.current) {
+            offsetRef.current += velocityRef.current;
+            velocityRef.current *= 0.94; // Physics friction decay
+            if (Math.abs(velocityRef.current) < 0.01) {
+              velocityRef.current = 0;
+            }
+          }
+
+          // Mathematical infinite conveyor wrap
+          while (offsetRef.current <= -halfWidth) {
+            offsetRef.current += halfWidth;
+          }
+          while (offsetRef.current > 0) {
+            offsetRef.current -= halfWidth;
+          }
+
+          // Dynamic momentum-based inertia tilt (smooth skew based on current speed & velocity)
+          const totalMotion = isDraggingRef.current
+            ? velocityRef.current
+            : velocityRef.current + (currentSpeedRef.current * directionRef.current);
+          const targetSkew = Math.max(-2.5, Math.min(2.5, totalMotion * 0.08));
+          skewRef.current += (targetSkew - skewRef.current) * 0.12;
+
+          trackRef.current.style.transform = `translate3d(${offsetRef.current}px, 0, 0) skewX(${skewRef.current.toFixed(2)}deg)`;
+
+          // Normalized stream position (0 to 1) for the interactive scrubber
+          const normProg = (Math.abs(offsetRef.current) % halfWidth) / halfWidth;
+          setProgress(normProg);
+        }
+      }
+
+      animId = requestAnimationFrame(animate);
+    };
+
+    animId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  // Pointer drag event handlers (Supports mouse & touch gestures with momentum flick)
+  const handlePointerDown = (e: React.PointerEvent) => {
+    isDraggingRef.current = true;
+    setIsDragging(true);
+    startXRef.current = e.clientX;
+    lastXRef.current = e.clientX;
+    lastTimeRef.current = performance.now();
+    velocityRef.current = 0;
+    dragMovedRef.current = 0;
+    globalDragMoved = 0;
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+    const now = performance.now();
+    const dt = Math.max(1, now - lastTimeRef.current);
+    const dx = e.clientX - lastXRef.current;
+
+    dragMovedRef.current += Math.abs(dx);
+    globalDragMoved = dragMovedRef.current;
+    offsetRef.current += dx;
+    velocityRef.current = (dx / dt) * 16; // Calculate release velocity
+
+    lastXRef.current = e.clientX;
+    lastTimeRef.current = now;
+  };
+
+  const handlePointerUp = () => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+    // Reset global drag flag after a small tick so click events can read it
+    setTimeout(() => {
+      globalDragMoved = 0;
+    }, 50);
+  };
+
+  // Two-finger trackpad / mousewheel horizontal navigation
+  const handleWheel = (e: React.WheelEvent) => {
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) > 1) {
+      velocityRef.current -= delta * 0.18;
+    }
+  };
+
+  // Scrubber bar scrub/jump interaction
+  const handleScrub = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    if (trackRef.current) {
+      const halfWidth = trackRef.current.scrollWidth / 2;
+      offsetRef.current = -ratio * halfWidth;
+      setProgress(ratio);
+    }
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="certifications"
       className="relative w-full bg-white border-t border-zinc-200 py-20 sm:py-24 overflow-hidden select-none"
     >
       {/* Section Header with Navigation Controls */}
-      <div className="w-full px-6 sm:px-10 md:px-16 pb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-zinc-200/80">
+      <div
+        className={`w-full px-6 sm:px-10 md:px-16 pb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-zinc-200/80 transition-all duration-1000 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <div>
           <span className="text-xs font-mono-tech text-zinc-400 uppercase tracking-wider block mb-2">
             Accreditations & Honors
@@ -441,71 +691,107 @@ export default function CertificationsSection() {
           </h2>
         </div>
 
-        {/* Right Header Navigation & Counter */}
+        {/* Right Header Navigation & Controls */}
         <div className="flex items-center gap-4">
           <span className="text-xs font-mono-tech text-zinc-400 hidden sm:inline-block">
             {certificatesList.length} Verified Credentials
           </span>
 
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-3 sm:gap-5">
+            {/* Reverse Button */}
             <button
               onClick={() => {
                 setDirection("right");
                 setIsPaused(false);
               }}
               aria-label="Stream Left to Right"
-              className={`text-xs font-mono-tech transition-colors flex items-center gap-1.5 cursor-pointer group ${
+              className={`text-xs font-mono-tech transition-all flex items-center gap-1 cursor-pointer group px-2 py-1 rounded hover:bg-zinc-100 ${
                 direction === "right" && !isPaused
                   ? "text-zinc-950 font-bold"
                   : "text-zinc-400 hover:text-zinc-950"
               }`}
             >
-              <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
+              <span className="transform group-hover:-translate-x-0.5 transition-transform">←</span>
               <span>REVERSE</span>
             </button>
 
+            {/* Pause / Resume Button */}
             <button
               onClick={() => setIsPaused(!isPaused)}
               aria-label="Toggle Auto-scroll"
-              className="text-xs font-mono-tech text-zinc-400 hover:text-zinc-950 transition-colors cursor-pointer"
+              className="text-xs font-mono-tech text-zinc-400 hover:text-zinc-950 transition-colors cursor-pointer px-2 py-1 rounded hover:bg-zinc-100"
             >
               <span>{isPaused ? "RESUME" : "PAUSE"}</span>
             </button>
 
+            {/* Speed Toggle (1x / 2x Boost) */}
+            <button
+              onClick={() => setSpeedMultiplier((prev) => (prev === 1 ? 2 : 1))}
+              aria-label="Toggle Scroll Speed"
+              className={`text-xs font-mono-tech transition-colors cursor-pointer px-2 py-0.5 rounded border ${
+                speedMultiplier === 2
+                  ? "bg-zinc-950 text-white border-zinc-950"
+                  : "text-zinc-500 border-zinc-200 hover:border-zinc-400"
+              }`}
+            >
+              {speedMultiplier}X SPEED
+            </button>
+
+            {/* Forward Button */}
             <button
               onClick={() => {
                 setDirection("left");
                 setIsPaused(false);
               }}
               aria-label="Stream Right to Left"
-              className={`text-xs font-mono-tech transition-colors flex items-center gap-1.5 cursor-pointer group ${
+              className={`text-xs font-mono-tech transition-all flex items-center gap-1 cursor-pointer group px-2 py-1 rounded hover:bg-zinc-100 ${
                 direction === "left" && !isPaused
                   ? "text-zinc-950 font-bold"
                   : "text-zinc-400 hover:text-zinc-950"
               }`}
             >
               <span>FORWARD</span>
-              <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+              <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* 100% UNBROKEN SEAMLESS INFINITE LOOP STREAM */}
+      {/* 
+        NEXT-LEVEL SEAMLESS INFINITE STREAM
+        - Momentum drag-to-scroll & flick inertia
+        - Vertical scroll-velocity reactivity
+        - Cinematic edge-fade gradient masks
+        - Micro-velocity dynamic skew
+        - Smooth deceleration on hover
+      */}
       <div
-        className="w-full overflow-hidden pt-10 pb-4 relative"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        ref={streamContainerRef}
+        className={`w-full overflow-hidden pt-10 pb-6 relative transition-opacity duration-1000 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        } ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
+        }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+        onWheel={handleWheel}
+        onMouseEnter={() => {
+          isHoveredRef.current = true;
+        }}
+        onMouseLeave={() => {
+          isHoveredRef.current = false;
+        }}
       >
         <div
-          className={`flex w-max ${
-            isPaused
-              ? ""
-              : direction === "left"
-              ? "animate-marquee-loop-left"
-              : "animate-marquee-loop-right"
-          }`}
-          style={{ willChange: "transform" }}
+          ref={trackRef}
+          className="flex w-max"
+          style={{ willChange: "transform", touchAction: "pan-y" }}
         >
           {/* TRACK 1 */}
           <div className="flex gap-5 sm:gap-6 shrink-0 pr-5 sm:pr-6">
@@ -518,7 +804,7 @@ export default function CertificationsSection() {
             ))}
           </div>
 
-          {/* TRACK 2 (Exact clone for mathematically seamless loop that never restarts) */}
+          {/* TRACK 2 (Seamless loop clone) */}
           <div className="flex gap-5 sm:gap-6 shrink-0 pr-5 sm:pr-6" aria-hidden="true">
             {certificatesList.map((cert) => (
               <CertificateCard
@@ -529,6 +815,32 @@ export default function CertificationsSection() {
               />
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Interactive Timeline Scrubber & Gesture Hint */}
+      <div className="w-full px-6 sm:px-10 md:px-16 pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tech text-zinc-400">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-zinc-950 animate-pulse" />
+          <span className="uppercase tracking-wider">Drag to scrub or scroll page</span>
+        </div>
+
+        {/* Draggable & Clickable Timeline Progress Bar */}
+        <div
+          onClick={handleScrub}
+          className="relative w-full sm:w-80 md:w-96 h-2 bg-zinc-100 hover:bg-zinc-200/80 rounded-full cursor-pointer overflow-hidden transition-colors group"
+          title="Click to scrub credentials"
+        >
+          <div
+            className="h-full bg-zinc-950 rounded-full relative transition-all duration-75"
+            style={{ width: `${(progress * 100).toFixed(1)}%` }}
+          >
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white shadow-sm ring-1 ring-zinc-900" />
+          </div>
+        </div>
+
+        <div className="uppercase tracking-wider">
+          {Math.round(progress * certificatesList.length) + 1} / {certificatesList.length}
         </div>
       </div>
     </section>

@@ -59,11 +59,10 @@ export default function CreateWorld() {
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-mono-tech transition-all border ${
-                    activeFilter === filter 
-                      ? "bg-zinc-950 text-white border-zinc-950 shadow-md scale-105" 
+                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-mono-tech transition-all border ${activeFilter === filter
+                      ? "bg-zinc-950 text-white border-zinc-950 shadow-md scale-105"
                       : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
-                  }`}
+                    }`}
                 >
                   {filter}
                 </button>
@@ -74,7 +73,7 @@ export default function CreateWorld() {
 
         {/* Projects Grid Container */}
         <div className="space-y-24">
-          
+
           {/* Main Grid */}
           {filteredProjects.length > 0 && (
             <section className="animate-in fade-in duration-700 delay-300">
@@ -93,7 +92,7 @@ export default function CreateWorld() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
-                    
+
                     <div className="flex flex-col flex-1 p-5">
                       <div className="flex flex-wrap gap-1 mb-3">
                         {project.category.slice(0, 2).map((cat, i) => (
@@ -102,15 +101,15 @@ export default function CreateWorld() {
                           </span>
                         ))}
                       </div>
-                      
+
                       <h4 className="text-lg font-bold font-heading tracking-tight mb-2 text-zinc-950 leading-tight">
                         {project.title}
                       </h4>
-                      
+
                       <p className="text-zinc-500 font-sans-clean text-xs line-clamp-2 mb-4 flex-1">
                         {project.description}
                       </p>
-                      
+
                       <div className="mt-auto pt-3 border-t border-zinc-100 flex items-center justify-between">
                         <span className="text-[10px] font-mono-tech text-zinc-400 uppercase truncate pr-2">
                           {project.role}
@@ -139,16 +138,16 @@ export default function CreateWorld() {
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12 animate-in fade-in duration-300">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-white/80 backdrop-blur-md"
             onClick={() => setSelectedProject(null)}
           />
-          
+
           {/* Modal Content */}
           <div className="relative bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-zinc-200 animate-in slide-in-from-bottom-8 duration-500 flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            
+
             {/* Close Button */}
-            <button 
+            <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-6 right-6 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 backdrop-blur border border-zinc-200 text-zinc-950 hover:bg-zinc-100 transition-colors shadow-sm"
             >
@@ -183,7 +182,7 @@ export default function CreateWorld() {
 
             {/* Modal Body (10-point system) */}
             <div className="p-8 sm:p-12 md:p-16 space-y-16">
-              
+
               {selectedProject.context && (
                 <section>
                   <h3 className="text-xs font-mono-tech text-zinc-400 tracking-widest uppercase mb-4">01 — Context</h3>
@@ -289,16 +288,16 @@ export default function CreateWorld() {
 
               {/* External Link / Gallery Links */}
               <div className="pt-8 border-t border-zinc-100 flex flex-col sm:flex-row gap-4 items-center justify-between">
-                
+
                 {selectedProject.galleryUrls && selectedProject.galleryUrls.length > 0 ? (
                   <div className="flex flex-col gap-3 w-full">
                     <span className="text-xs font-mono-tech text-zinc-400 uppercase">Gallery & Public References:</span>
                     <div className="flex flex-wrap gap-3">
                       {selectedProject.galleryUrls.map((url, i) => (
-                        <Link 
-                          key={i} 
-                          href={url} 
-                          target="_blank" 
+                        <Link
+                          key={i}
+                          href={url}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="px-4 py-2 rounded-full border border-zinc-200 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white transition-colors text-xs font-mono-tech flex items-center gap-2"
                         >
@@ -310,9 +309,9 @@ export default function CreateWorld() {
                 ) : (
                   <div className="w-full">
                     {selectedProject.source !== "#" ? (
-                      <Link 
-                        href={selectedProject.source} 
-                        target="_blank" 
+                      <Link
+                        href={selectedProject.source}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex px-8 py-4 rounded-full bg-zinc-950 text-white hover:bg-zinc-800 transition-colors text-sm font-sans-clean font-medium items-center gap-2"
                       >
@@ -325,7 +324,7 @@ export default function CreateWorld() {
                     )}
                   </div>
                 )}
-                
+
               </div>
 
             </div>
