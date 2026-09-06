@@ -432,6 +432,31 @@ export default function Home() {
               </span>
             </div>
 
+            {selectedCard.num === "01" && (
+              <div className="relative w-full flex-1 flex items-center justify-center my-4">
+                <Image
+                  src="/laptop.png"
+                  alt="Create Laptop"
+                  width={340}
+                  height={240}
+                  priority
+                  className="w-48 sm:w-60 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                />
+              </div>
+            )}
+            {selectedCard.num === "02" && (
+              <div className="relative w-full flex-1 flex items-center justify-center my-4">
+                <Image
+                  src="/capture.png"
+                  alt="Capture Camera"
+                  width={340}
+                  height={240}
+                  priority
+                  className="w-48 sm:w-60 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                />
+              </div>
+            )}
+
             <div className="w-full pb-2 sm:pb-4">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-white uppercase">
                 {selectedCard.title}
@@ -552,12 +577,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: Navigation Menu Section (4 Equal Width Panels) */}
-      <section id="categories" className="relative w-full h-screen grid grid-cols-1 md:grid-cols-3 overflow-hidden border-t border-zinc-200">
+      <section id="categories" className="relative w-full min-h-screen md:h-screen grid grid-cols-1 md:grid-cols-3 overflow-hidden border-t border-zinc-200">
         {navItems.map((item) => (
           <div
             key={item.num}
             onClick={() => handleCardClick(item)}
-            className="group relative h-full p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between items-start transition-all duration-500 hover:bg-[#0c0c0e] cursor-pointer select-none border-b md:border-b-0 md:border-r border-zinc-200 last:border-r-0 hover:border-zinc-800"
+            className="group relative h-full min-h-[540px] md:min-h-0 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between items-start transition-all duration-500 hover:bg-[#0c0c0e] cursor-pointer select-none border-b md:border-b-0 md:border-r border-zinc-200 last:border-r-0 hover:border-zinc-800"
           >
             {/* Top Right Big Number */}
             <div className="w-full flex justify-end">
@@ -565,6 +590,37 @@ export default function Home() {
                 {item.num}
               </span>
             </div>
+
+            {/* Middle Section: Big Visual for 01 Create & 02 Capture */}
+            {item.num === "01" ? (
+              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
+                <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
+                  <Image
+                    src="/laptop.png"
+                    alt="Create Laptop"
+                    width={700}
+                    height={480}
+                    priority
+                    className="w-full h-auto object-contain drop-shadow-2xl select-none"
+                  />
+                </div>
+              </div>
+            ) : item.num === "02" ? (
+              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
+                <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
+                  <Image
+                    src="/capture.png"
+                    alt="Capture Camera"
+                    width={700}
+                    height={480}
+                    priority
+                    className="w-full h-auto object-contain drop-shadow-2xl select-none"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="w-full flex-1" />
+            )}
 
             {/* Bottom Title, Description & Nav Arrow */}
             <div className="w-full pb-2 sm:pb-4 md:pb-6">
