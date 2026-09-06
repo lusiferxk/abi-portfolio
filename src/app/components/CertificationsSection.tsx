@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export interface CertificateItem {
   id: string;
@@ -12,6 +13,8 @@ export interface CertificateItem {
   credentialId: string;
   credentialUrl: string;
   logo: React.ReactNode;
+  badgeImage?: string;
+  badgeType?: string;
 }
 
 const googleLogo = (
@@ -51,6 +54,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://www.linkedin.com/in/abi-amandi-1877391b0/overlay/Certifications/2069604506/treasury/?profileId=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c",
     logo: googleLogo,
+    badgeType: "Google Digital Academy",
   },
   {
     id: "cert-2",
@@ -63,6 +67,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143318854",
     credentialUrl: "https://skillshop.credential.net/34c024c7-84ec-403b-a0ee-df50f9222742",
     logo: googleLogo,
+    badgeImage: "/badges/14.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-3",
@@ -75,6 +81,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143323804",
     credentialUrl: "https://skillshop.credential.net/6e42e2df-565f-4ccc-b4c5-dc7b67f3f465",
     logo: googleLogo,
+    badgeImage: "/badges/15.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-4",
@@ -87,6 +95,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143595846",
     credentialUrl: "https://skillshop.credential.net/85d11609-53c4-4197-bb1a-f386dabd7fee",
     logo: googleLogo,
+    badgeImage: "/badges/13.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-5",
@@ -99,6 +109,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143581039",
     credentialUrl: "https://skillshop.credential.net/5d51055e-a282-4df7-acf6-a55aa4818850",
     logo: googleLogo,
+    badgeImage: "/badges/11.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-6",
@@ -111,6 +123,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143576428",
     credentialUrl: "https://skillshop.credential.net/b207c13f-3742-4aa9-b32d-c658d9d52797",
     logo: googleLogo,
+    badgeImage: "/badges/12.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-7",
@@ -123,6 +137,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143566224",
     credentialUrl: "https://skillshop.credential.net/6c34b5de-0521-4497-bec2-e4cb4675c16e",
     logo: googleLogo,
+    badgeImage: "/badges/10.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-8",
@@ -135,6 +151,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143556781",
     credentialUrl: "https://skillshop.credential.net/3cf9d6fc-787d-4ea0-b1a3-ed8060b7789b",
     logo: googleLogo,
+    badgeImage: "/badges/8.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-9",
@@ -147,6 +165,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143307741",
     credentialUrl: "https://skillshop.credential.net/481ea859-e7d0-4303-ba72-c40ece5c7c32",
     logo: googleLogo,
+    badgeImage: "/badges/9.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-10",
@@ -159,6 +179,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143303596",
     credentialUrl: "https://skillshop.credential.net/f5a0183e-5c7d-44e5-b712-b80c79566b8e",
     logo: googleLogo,
+    badgeImage: "/badges/7.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-11",
@@ -171,6 +193,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143290549",
     credentialUrl: "https://skillshop.credential.net/640d62e7-4cbd-4c09-9148-f9121ab392d3",
     logo: googleLogo,
+    badgeImage: "/badges/6.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-12",
@@ -183,6 +207,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143287696",
     credentialUrl: "https://skillshop.credential.net/187bb906-7206-4e6c-97bd-fcd79529352d",
     logo: googleLogo,
+    badgeImage: "/badges/5.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-13",
@@ -195,6 +221,7 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143259875",
     credentialUrl: "https://skillshop.credential.net/ff5ddc2b-86ca-4506-8288-ec1bb3c49356",
     logo: googleLogo,
+    badgeType: "Google Digital Academy",
   },
   {
     id: "cert-14",
@@ -207,6 +234,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "143256298",
     credentialUrl: "https://skillshop.credential.net/a2299adc-cdbb-4fa3-97bd-431a94e9ff37",
     logo: googleLogo,
+    badgeImage: "/badges/4.png",
+    badgeType: "Google Skillshop",
   },
   {
     id: "cert-15",
@@ -220,6 +249,8 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://app-na2.hubspot.com/academy/achievements/x847dxrj/en/1/amandi-d/social-media-marketing",
     logo: hubspotLogo,
+    badgeImage: "/badges/3.png",
+    badgeType: "HubSpot Academy",
   },
   {
     id: "cert-16",
@@ -232,6 +263,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "6bc0e6ff2bd74730ac5eec62821e1d25",
     credentialUrl: "https://app-na2.hubspot.com/academy/achievements/ypkswtcg/en/1/amandi-d/seo",
     logo: hubspotLogo,
+    badgeImage: "/badges/3.png",
+    badgeType: "HubSpot Academy",
   },
   {
     id: "cert-17",
@@ -245,6 +278,8 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://app-na2.hubspot.com/academy/achievements/4t009vdk/en/1/amandi-d/content-marketing",
     logo: hubspotLogo,
+    badgeImage: "/badges/3.png",
+    badgeType: "HubSpot Academy",
   },
   {
     id: "cert-18",
@@ -257,6 +292,7 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "385635396",
     credentialUrl: "https://skillshop.exceedlms.com/student/award/kE1L6gdxiCsEMViw6vtwDxbe",
     logo: googleLogo,
+    badgeType: "Google Digital Garage",
   },
   {
     id: "cert-19",
@@ -269,6 +305,8 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "NVTHTWYM0F4N",
     credentialUrl: "https://www.coursera.org/account/accomplishments/records/NVTHTWYM0F4N",
     logo: courseraLogo,
+    badgeImage: "/badges/2.png",
+    badgeType: "Coursera",
   },
   {
     id: "cert-20",
@@ -282,6 +320,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://static.semrush.com/academy/certificates/6b3e7c6039/amandi-dassanayake_1.pdf",
     logo: semrushLogo,
+    badgeType: "Semrush Academy",
   },
   {
     id: "cert-21",
@@ -295,6 +334,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://static.semrush.com/academy/certificates/6adbefc723/amandi-dassanayake_1.pdf",
     logo: semrushLogo,
+    badgeType: "Semrush Academy",
   },
   {
     id: "cert-22",
@@ -308,6 +348,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://static.semrush.com/academy/certificates/331910c0c5/amandi-dassanayake_34.pdf",
     logo: semrushLogo,
+    badgeType: "Semrush Academy",
   },
   {
     id: "cert-23",
@@ -320,8 +361,65 @@ export const certificatesList: CertificateItem[] = [
     credentialId: "531540",
     credentialUrl: "https://www.semrush.com/academy/",
     logo: semrushLogo,
+    badgeType: "Semrush Academy",
   },
 ];
+
+function CertificateCard({
+  cert,
+  trackPrefix,
+  isDuplicate = false,
+}: {
+  cert: CertificateItem;
+  trackPrefix: string;
+  isDuplicate?: boolean;
+}) {
+  return (
+    <a
+      key={`${trackPrefix}-${cert.id}`}
+      href={cert.credentialUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      tabIndex={isDuplicate ? -1 : undefined}
+      aria-hidden={isDuplicate ? "true" : undefined}
+      className="w-[290px] sm:w-[320px] md:w-[350px] min-h-[340px] sm:min-h-[360px] p-6 sm:p-7 rounded-3xl bg-zinc-50/80 hover:bg-white border border-zinc-200/90 hover:border-zinc-950 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-start shrink-0 group transform hover:-translate-y-1 block cursor-pointer"
+    >
+      {/* Top: Card Header & Number */}
+      <div className="flex items-center justify-between text-xs font-mono-tech text-zinc-400 mb-4 pb-2 border-b border-zinc-200/60">
+        <span className="uppercase tracking-wider font-mono-tech truncate max-w-[180px]">
+          ID: {cert.credentialId}
+        </span>
+        <span className="font-bold text-zinc-900 group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
+          {cert.num} ↗
+        </span>
+      </div>
+
+      {/* Clean Official Badge (No background, pure badge artwork) */}
+      {cert.badgeImage && (
+        <div className="my-4 flex items-center justify-center">
+          <Image
+            src={cert.badgeImage}
+            alt={`${cert.title} Badge`}
+            width={130}
+            height={130}
+            unoptimized
+            className="w-28 h-28 sm:w-32 sm:h-32 object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      )}
+
+      {/* Certificate Title */}
+      <h3 className="text-lg sm:text-xl font-bold font-heading tracking-tight text-zinc-950 leading-snug line-clamp-2 uppercase mt-2">
+        {cert.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-xs sm:text-sm font-sans-clean text-zinc-600 leading-relaxed line-clamp-3 mt-3">
+        {cert.description}
+      </p>
+    </a>
+  );
+}
 
 export default function CertificationsSection() {
   const [isPaused, setIsPaused] = useState(false);
@@ -412,107 +510,23 @@ export default function CertificationsSection() {
           {/* TRACK 1 */}
           <div className="flex gap-5 sm:gap-6 shrink-0 pr-5 sm:pr-6">
             {certificatesList.map((cert) => (
-              <a
+              <CertificateCard
                 key={`track1-${cert.id}`}
-                href={cert.credentialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-[290px] sm:w-[320px] md:w-[350px] min-h-[330px] sm:min-h-[350px] p-6 sm:p-7 rounded-3xl bg-zinc-50/80 hover:bg-white border border-zinc-200/90 hover:border-zinc-950 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-between shrink-0 group transform hover:-translate-y-1 block cursor-pointer"
-              >
-                {/* Top: Card Header & Number */}
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono-tech text-zinc-400 mb-4 pb-2 border-b border-zinc-200/60">
-                    <span className="uppercase tracking-wider font-mono-tech truncate max-w-[180px]">
-                      ID: {cert.credentialId}
-                    </span>
-                    <span className="font-bold text-zinc-900 group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
-                      {cert.num} ↗
-                    </span>
-                  </div>
-
-                  {/* Certificate Title */}
-                  <h3 className="text-lg sm:text-xl font-bold font-heading tracking-tight text-zinc-950 leading-snug line-clamp-2 uppercase">
-                    {cert.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm font-sans-clean text-zinc-600 leading-relaxed line-clamp-3 mt-3">
-                    {cert.description}
-                  </p>
-                </div>
-
-                {/* Bottom Issuer Info matching reference image */}
-                <div className="flex items-center gap-3 pt-4 border-t border-zinc-200/60 mt-4">
-                  {/* Corporation Logo Avatar */}
-                  <div className="w-9 h-9 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-800 shrink-0 shadow-xs group-hover:scale-105 group-hover:border-zinc-950 transition-all">
-                    {cert.logo}
-                  </div>
-
-                  {/* Corporation Name & Date */}
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-xs font-bold font-heading text-zinc-950 truncate uppercase tracking-tight">
-                      {cert.corporation}
-                    </span>
-                    <span className="text-[10px] font-mono-tech text-zinc-400">
-                      Issued {cert.date}
-                    </span>
-                  </div>
-                </div>
-              </a>
+                cert={cert}
+                trackPrefix="track1"
+              />
             ))}
           </div>
 
           {/* TRACK 2 (Exact clone for mathematically seamless loop that never restarts) */}
           <div className="flex gap-5 sm:gap-6 shrink-0 pr-5 sm:pr-6" aria-hidden="true">
             {certificatesList.map((cert) => (
-              <a
+              <CertificateCard
                 key={`track2-${cert.id}`}
-                href={cert.credentialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                tabIndex={-1}
-                className="w-[290px] sm:w-[320px] md:w-[350px] min-h-[330px] sm:min-h-[350px] p-6 sm:p-7 rounded-3xl bg-zinc-50/80 hover:bg-white border border-zinc-200/90 hover:border-zinc-950 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-between shrink-0 group transform hover:-translate-y-1 block cursor-pointer"
-              >
-                {/* Top: Card Header & Number */}
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono-tech text-zinc-400 mb-4 pb-2 border-b border-zinc-200/60">
-                    <span className="uppercase tracking-wider font-mono-tech truncate max-w-[180px]">
-                      ID: {cert.credentialId}
-                    </span>
-                    <span className="font-bold text-zinc-900 group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
-                      {cert.num} ↗
-                    </span>
-                  </div>
-
-                  {/* Certificate Title */}
-                  <h3 className="text-lg sm:text-xl font-bold font-heading tracking-tight text-zinc-950 leading-snug line-clamp-2 uppercase">
-                    {cert.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm font-sans-clean text-zinc-600 leading-relaxed line-clamp-3 mt-3">
-                    {cert.description}
-                  </p>
-                </div>
-
-                {/* Bottom Issuer Info matching reference image */}
-                <div className="flex items-center gap-3 pt-4 border-t border-zinc-200/60 mt-4">
-                  {/* Corporation Logo Avatar */}
-                  <div className="w-9 h-9 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-800 shrink-0 shadow-xs group-hover:scale-105 group-hover:border-zinc-950 transition-all">
-                    {cert.logo}
-                  </div>
-
-                  {/* Corporation Name & Date */}
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-xs font-bold font-heading text-zinc-950 truncate uppercase tracking-tight">
-                      {cert.corporation}
-                    </span>
-                    <span className="text-[10px] font-mono-tech text-zinc-400">
-                      Issued {cert.date}
-                    </span>
-                  </div>
-                </div>
-              </a>
+                cert={cert}
+                trackPrefix="track2"
+                isDuplicate={true}
+              />
             ))}
           </div>
         </div>
