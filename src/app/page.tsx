@@ -456,6 +456,18 @@ export default function Home() {
                 />
               </div>
             )}
+            {selectedCard.num === "03" && (
+              <div className="relative w-full flex-1 flex items-center justify-center my-4">
+                <Image
+                  src="/vr.png"
+                  alt="Build VR Headset"
+                  width={340}
+                  height={240}
+                  priority
+                  className="w-48 sm:w-60 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                />
+              </div>
+            )}
 
             <div className="w-full pb-2 sm:pb-4">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight text-white uppercase">
@@ -591,7 +603,7 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Middle Section: Big Visual for 01 Create & 02 Capture */}
+            {/* Middle Section: Big Visual for 01 Create, 02 Capture, 03 Build */}
             {item.num === "01" ? (
               <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
                 <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
@@ -611,6 +623,19 @@ export default function Home() {
                   <Image
                     src="/capture.png"
                     alt="Capture Camera"
+                    width={700}
+                    height={480}
+                    priority
+                    className="w-full h-auto object-contain drop-shadow-2xl select-none"
+                  />
+                </div>
+              </div>
+            ) : item.num === "03" ? (
+              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
+                <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
+                  <Image
+                    src="/vr.png"
+                    alt="Build VR Headset"
                     width={700}
                     height={480}
                     priority
