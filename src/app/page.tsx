@@ -461,10 +461,10 @@ export default function Home() {
                 <Image
                   src="/vr.png"
                   alt="Build VR Headset"
-                  width={340}
-                  height={240}
+                  width={400}
+                  height={280}
                   priority
-                  className="w-48 sm:w-60 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                  className="w-56 sm:w-72 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
                 />
               </div>
             )}
@@ -631,13 +631,13 @@ export default function Home() {
                 </div>
               </div>
             ) : item.num === "03" ? (
-              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
-                <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
+              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none overflow-visible">
+                <div className="relative w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[540px] xl:max-w-[600px] flex items-center justify-center transition-transform duration-700 ease-out scale-110 sm:scale-120 group-hover:scale-[1.3] group-hover:-translate-y-2">
                   <Image
                     src="/vr.png"
                     alt="Build VR Headset"
-                    width={700}
-                    height={480}
+                    width={800}
+                    height={550}
                     priority
                     className="w-full h-auto object-contain drop-shadow-2xl select-none"
                   />
