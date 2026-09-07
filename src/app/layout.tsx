@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abi | Multi-Disciplinary Portfolio",
+  title: "Abi | Portfolio",
   description: "Marketing, Cinematography, Photography & AR/VR",
 };
 
