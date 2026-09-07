@@ -20,11 +20,14 @@ export interface Project {
   coverImage: string;
   year?: string;
   worksInside?: number;
-  
+
   // New fields for CAPTURE editorial gallery
   assetStatus?: "available" | "awaiting-source";
   media?: ProjectMedia[];
-  
+
+  // 3D Model field
+  sketchfabId?: string;
+
   // 10-point case study structure (optional fields for detailed views)
   context?: string;
   challenge?: string;
@@ -400,6 +403,7 @@ export const buildProjects: Project[] = [
     tools: ["Unity", "ARCore", "Blender", "C#"],
     coverImage: "/worlds/cinear-research.jpg",
     year: "2024",
+    sketchfabId: "f7cdd13d870d42eca07f043d9404b220",
     context: "Exploration at the boundary of augmented reality and cinematic storytelling, researching how spatial computing can expand passive film experiences into interactive spatial narratives.",
     challenge: "Cinematic media relies on controlled perspectives and framing, while spatial computing gives users unrestricted spatial freedom. Bridging this gap required real-time marker tracking, dynamic occlusion, and spatial audio synchronization.",
     myRole: "Lead Researcher, Prototype Developer & 3D Interaction Designer",
@@ -423,6 +427,7 @@ export const buildProjects: Project[] = [
     tools: ["Google Slides", "Unity", "ARCore"],
     coverImage: "/worlds/cinear-research.jpg",
     year: "2024",
+    sketchfabId: "4cee0970fe60444ead77d41fbb052a33",
     context: "Academic investigation into modern mobile augmented reality architectures, focusing on latency, drift mitigation, and visual fidelity.",
     challenge: "Evaluating tracking accuracy constraints and performance bottlenecks across diverse mobile hardware tiers.",
     myRole: "Academic Researcher & Author",
@@ -446,6 +451,7 @@ export const buildProjects: Project[] = [
     tools: ["Blender", "Unity", "Substance 3D"],
     coverImage: "/worlds/threed-blender.jpg",
     year: "2024",
+    sketchfabId: "294e79652f494130ad2ab00a13fdbafd",
     context: "Interactive 3D asset pipeline designed to deliver console-grade character animation and environments within real-time web and game engines.",
     challenge: "Balancing intricate geometric detail and high-resolution textures with smooth 60 FPS runtime performance.",
     myRole: "3D Artist, Technical Animator & Interactive Developer",
@@ -469,6 +475,7 @@ export const buildProjects: Project[] = [
     tools: ["Blender", "Cycles Engine", "Photoshop"],
     coverImage: "/worlds/threed-blender.jpg",
     year: "2024",
+    sketchfabId: "fddc4e68cc6c498b88b19af1a05bd420",
     context: "A dedicated visual study exploring light simulation, photorealistic material rendering, and hard-surface industrial design.",
     challenge: "Accurately simulating complex caustics, subsurface light scattering, and micron-level surface imperfections.",
     myRole: "Lead 3D Visualizer & Render Artist",
@@ -492,6 +499,7 @@ export const buildProjects: Project[] = [
     tools: ["Kotlin", "Android Studio", "Firebase", "Room DB"],
     coverImage: "/worlds/build-hero.jpg",
     year: "2024",
+    sketchfabId: "3a7bbf99f30c4792a439db2bcaec3524",
     context: "Official mobile application engineered for the Engineering Council of Sri Lanka (ECSL) to verify engineering credentials and manage registrations.",
     challenge: "Designing a high-trust digital credential verification system that functions seamlessly even in low-bandwidth or offline environments.",
     myRole: "Native Android Developer & UI Engineer",
@@ -515,6 +523,7 @@ export const buildProjects: Project[] = [
     tools: ["WordPress", "PHP", "Tailwind CSS", "JavaScript"],
     coverImage: "/worlds/build-hero.jpg",
     year: "2024",
+    sketchfabId: "d471ea8c6235457b8e131842e2cf3783",
     context: "Curated destination discovery portal and travel guide celebrating Sri Lanka's wildlife, cultural heritage, and geography.",
     challenge: "Creating an image-rich storytelling platform without sacrificing Lighthouse performance scores and mobile responsiveness.",
     myRole: "Lead Full-Stack Web Developer",

@@ -87,7 +87,7 @@ export default function Home() {
   const [isRotating, setIsRotating] = useState<boolean>(false);
   const [isCanvasOpen, setIsCanvasOpen] = useState<boolean>(false);
   const [recentPosts, setRecentPosts] = useState<BlogPostPreview[]>([]);
-  const [isBlogHovered, setIsBlogHovered] = useState<boolean>(false);
+  const [hoveredDesk, setHoveredDesk] = useState<string | null>(null);
 
   // Contact form state
   const [formData, setFormData] = useState({
@@ -438,10 +438,10 @@ export default function Home() {
                 <Image
                   src="/laptop.png"
                   alt="Create Laptop"
-                  width={340}
-                  height={240}
+                  width={280}
+                  height={200}
                   priority
-                  className="w-48 sm:w-60 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                  className="w-36 sm:w-44 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
                 />
               </div>
             )}
@@ -450,10 +450,10 @@ export default function Home() {
                 <Image
                   src="/capture.png"
                   alt="Capture Camera"
-                  width={340}
-                  height={240}
+                  width={280}
+                  height={200}
                   priority
-                  className="w-48 sm:w-60 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                  className="w-36 sm:w-44 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
                 />
               </div>
             )}
@@ -462,10 +462,10 @@ export default function Home() {
                 <Image
                   src="/vr.png"
                   alt="Build VR Headset"
-                  width={400}
-                  height={280}
+                  width={300}
+                  height={210}
                   priority
-                  className="w-56 sm:w-72 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                  className="w-40 sm:w-48 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
                 />
               </div>
             )}
@@ -522,29 +522,41 @@ export default function Home() {
           style={heroNavStyle}
           className="absolute right-6 sm:right-10 md:right-16 top-1/2 -translate-y-1/2 z-30 flex flex-col items-start gap-3.5 sm:gap-4 md:gap-5"
         >
-          <a
-            href="#categories"
+          <Link
+            href="/create"
+            onMouseEnter={() => setHoveredDesk("/desk_2.png")}
+            onMouseLeave={() => setHoveredDesk(null)}
             className="text-xs sm:text-sm font-mono-tech uppercase tracking-widest text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 group cursor-pointer text-left"
           >
-            <span>Categories</span>
+            <span>Create</span>
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-zinc-950 transition-all duration-300 group-hover:w-full" />
-          </a>
+          </Link>
 
-          <a
-            href="#certifications"
+          <Link
+            href="/capture"
+            onMouseEnter={() => setHoveredDesk("/desk_4.png")}
+            onMouseLeave={() => setHoveredDesk(null)}
             className="text-xs sm:text-sm font-mono-tech uppercase tracking-widest text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 group cursor-pointer text-left"
           >
-            <span>Certifications</span>
+            <span>Capture</span>
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-zinc-950 transition-all duration-300 group-hover:w-full" />
-          </a>
+          </Link>
+
+          <Link
+            href="/build"
+            onMouseEnter={() => setHoveredDesk("/desk_2.png")}
+            onMouseLeave={() => setHoveredDesk(null)}
+            className="text-xs sm:text-sm font-mono-tech uppercase tracking-widest text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 group cursor-pointer text-left"
+          >
+            <span>Build</span>
+            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-zinc-950 transition-all duration-300 group-hover:w-full" />
+          </Link>
 
           <a
             href="#blog"
-            onMouseEnter={() => setIsBlogHovered(true)}
-            onMouseLeave={() => setIsBlogHovered(false)}
             className="text-xs sm:text-sm font-mono-tech uppercase tracking-widest text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 group cursor-pointer text-left"
           >
-            <span>Blog</span>
+            <span>Blogs</span>
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-zinc-950 transition-all duration-300 group-hover:w-full" />
           </a>
 
@@ -559,7 +571,7 @@ export default function Home() {
 
         {/* Desk and Sitting Hero Person Layered with 3D Depth Transitions */}
         <div className="absolute inset-x-0 bottom-0 flex justify-center items-end pointer-events-none">
-          {/* Desk 3D Layer (Crossfades between hero-desk.png and desk_2.png on Blog hover) */}
+          {/* Desk 3D Layer (Crossfades between hero-desk.png, desk_2.png, and desk_4.png on hover) */}
           <div
             style={deskStyle}
             className="relative z-10 w-full flex justify-center items-end"
@@ -572,18 +584,29 @@ export default function Home() {
               height={1500}
               priority
               className={`w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
-                isBlogHovered ? "opacity-0 pointer-events-none" : "opacity-100"
+                hoveredDesk ? "opacity-0 pointer-events-none" : "opacity-100"
               }`}
             />
-            {/* Alternate Desk on Blog Hover */}
+            {/* Alternate Desk on Create, Build, or Blogs Hover (desk_2.png) */}
             <Image
               src="/desk_2.png"
-              alt="Hero Desk - Blog Mode"
+              alt="Hero Desk - Mode 2"
               width={1200}
               height={1500}
               priority
               className={`absolute inset-0 mx-auto w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
-                isBlogHovered ? "opacity-100" : "opacity-0 pointer-events-none"
+                hoveredDesk === "/desk_2.png" ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            />
+            {/* Alternate Desk on Capture Hover (desk_4.png) */}
+            <Image
+              src="/desk_4.png"
+              alt="Hero Desk - Capture Mode"
+              width={1200}
+              height={1500}
+              priority
+              className={`absolute inset-0 mx-auto w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
+                hoveredDesk === "/desk_4.png" ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             />
           </div>
@@ -611,7 +634,7 @@ export default function Home() {
           <div
             key={item.num}
             onClick={() => handleCardClick(item)}
-            className="group relative h-full min-h-[540px] md:min-h-0 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between items-start transition-all duration-500 hover:bg-[#0c0c0e] cursor-pointer select-none border-b md:border-b-0 md:border-r border-zinc-200 last:border-r-0 hover:border-zinc-800"
+            className="group relative h-full min-h-[540px] md:min-h-0 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between items-start transition-all duration-500 hover:bg-[#0c0c0e] cursor-pointer select-none border-b md:border-b-0 md:border-r border-zinc-200 last:border-r-0 hover:border-zinc-800 overflow-hidden"
           >
             {/* Top Right Big Number */}
             <div className="w-full flex justify-end">
@@ -620,10 +643,10 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Middle Section: Big Visual for 01 Create, 02 Capture, 03 Build */}
+            {/* Middle Section: Visual for 01 Create, 02 Capture, 03 Build (Bleeding off right border) */}
             {item.num === "01" ? (
-              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
-                <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
+              <div className="w-full flex-1 flex items-center justify-end my-4 relative pointer-events-none select-none -mr-6 sm:-mr-8 md:-mr-10 lg:-mr-12">
+                <div className="relative w-full max-w-[210px] sm:max-w-[240px] md:max-w-[270px] lg:max-w-[310px] xl:max-w-[340px] flex items-center justify-center translate-x-20 sm:translate-x-24 md:translate-x-28 lg:translate-x-36 xl:translate-x-44 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
                   <Image
                     src="/laptop.png"
                     alt="Create Laptop"
@@ -635,8 +658,8 @@ export default function Home() {
                 </div>
               </div>
             ) : item.num === "02" ? (
-              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none">
-                <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2">
+              <div className="w-full flex-1 flex items-center justify-end my-4 relative pointer-events-none select-none -mr-6 sm:-mr-8 md:-mr-10 lg:-mr-12">
+                <div className="relative w-full max-w-[190px] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[270px] xl:max-w-[300px] flex items-center justify-center translate-x-12 sm:translate-x-14 md:translate-x-18 lg:translate-x-22 xl:translate-x-26 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
                   <Image
                     src="/capture.png"
                     alt="Capture Camera"
@@ -648,13 +671,13 @@ export default function Home() {
                 </div>
               </div>
             ) : item.num === "03" ? (
-              <div className="w-full flex-1 flex items-center justify-center my-4 relative pointer-events-none select-none overflow-visible">
-                <div className="relative w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[540px] xl:max-w-[600px] flex items-center justify-center transition-transform duration-700 ease-out scale-110 sm:scale-120 group-hover:scale-[1.3] group-hover:-translate-y-2">
+              <div className="w-full flex-1 flex items-center justify-end my-4 relative pointer-events-none select-none -mr-6 sm:-mr-8 md:-mr-10 lg:-mr-12">
+                <div className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[390px] xl:max-w-[440px] flex items-center justify-center translate-x-14 sm:translate-x-16 md:translate-x-20 lg:translate-x-26 xl:translate-x-32 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
                   <Image
                     src="/vr.png"
                     alt="Build VR Headset"
-                    width={800}
-                    height={550}
+                    width={750}
+                    height={520}
                     priority
                     className="w-full h-auto object-contain drop-shadow-2xl select-none"
                   />
