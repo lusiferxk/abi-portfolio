@@ -657,7 +657,7 @@ export default function Home() {
             {/* Middle Section: Visual for 01 Create, 02 Capture, 03 Build (Bleeding off right border) */}
             {item.num === "01" ? (
               <div className="w-full flex-1 flex items-center justify-end my-4 relative pointer-events-none select-none -mr-6 sm:-mr-8 md:-mr-10 lg:-mr-12">
-                <div className="relative w-full max-w-[210px] sm:max-w-[240px] md:max-w-[270px] lg:max-w-[310px] xl:max-w-[340px] flex items-center justify-center translate-x-20 sm:translate-x-24 md:translate-x-28 lg:translate-x-36 xl:translate-x-44 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
+                <div className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[390px] xl:max-w-[430px] flex items-center justify-center translate-x-16 sm:translate-x-20 md:translate-x-24 lg:translate-x-30 xl:translate-x-36 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
                   <Image
                     src="/laptop.png"
                     alt="Create Laptop"
@@ -670,7 +670,7 @@ export default function Home() {
               </div>
             ) : item.num === "02" ? (
               <div className="w-full flex-1 flex items-center justify-end my-4 relative pointer-events-none select-none -mr-6 sm:-mr-8 md:-mr-10 lg:-mr-12">
-                <div className="relative w-full max-w-[190px] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[270px] xl:max-w-[300px] flex items-center justify-center translate-x-12 sm:translate-x-14 md:translate-x-18 lg:translate-x-22 xl:translate-x-26 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
+                <div className="relative w-full max-w-[230px] sm:max-w-[260px] md:max-w-[290px] lg:max-w-[330px] xl:max-w-[370px] flex items-center justify-center translate-x-14 sm:translate-x-16 md:translate-x-20 lg:translate-x-24 xl:translate-x-30 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
                   <Image
                     src="/capture.png"
                     alt="Capture Camera"
@@ -683,7 +683,7 @@ export default function Home() {
               </div>
             ) : item.num === "03" ? (
               <div className="w-full flex-1 flex items-center justify-end my-4 relative pointer-events-none select-none -mr-6 sm:-mr-8 md:-mr-10 lg:-mr-12">
-                <div className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[390px] xl:max-w-[440px] flex items-center justify-center translate-x-14 sm:translate-x-16 md:translate-x-20 lg:translate-x-26 xl:translate-x-32 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
+                <div className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[390px] lg:max-w-[450px] xl:max-w-[500px] flex items-center justify-center translate-x-16 sm:translate-x-20 md:translate-x-24 lg:translate-x-30 xl:translate-x-36 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2">
                   <Image
                     src="/vr.png"
                     alt="Build VR Headset"
