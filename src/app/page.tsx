@@ -544,7 +544,7 @@ export default function Home() {
 
           <Link
             href="/build"
-            onMouseEnter={() => setHoveredDesk("/desk_2.png")}
+            onMouseEnter={() => setHoveredDesk("/desk_3.png")}
             onMouseLeave={() => setHoveredDesk(null)}
             className="text-xs sm:text-sm font-mono-tech uppercase tracking-widest text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 group cursor-pointer text-left"
           >
@@ -571,7 +571,7 @@ export default function Home() {
 
         {/* Desk and Sitting Hero Person Layered with 3D Depth Transitions */}
         <div className="absolute inset-x-0 bottom-0 flex justify-center items-end pointer-events-none">
-          {/* Desk 3D Layer (Crossfades between hero-desk.png, desk_2.png, and desk_4.png on hover) */}
+          {/* Desk 3D Layer (Crossfades between hero-desk.png, desk_2.png, desk_3.png, and desk_4.png on hover) */}
           <div
             style={deskStyle}
             className="relative z-10 w-full flex justify-center items-end"
@@ -587,15 +587,26 @@ export default function Home() {
                 hoveredDesk ? "opacity-0 pointer-events-none" : "opacity-100"
               }`}
             />
-            {/* Alternate Desk on Create, Build, or Blogs Hover (desk_2.png) */}
+            {/* Alternate Desk on Create Hover (desk_2.png) */}
             <Image
               src="/desk_2.png"
-              alt="Hero Desk - Mode 2"
+              alt="Hero Desk - Create Mode"
               width={1200}
               height={1500}
               priority
               className={`absolute inset-0 mx-auto w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
                 hoveredDesk === "/desk_2.png" ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            />
+            {/* Alternate Desk on Build Hover (desk_3.png) */}
+            <Image
+              src="/desk_3.png"
+              alt="Hero Desk - Build Mode"
+              width={1200}
+              height={1500}
+              priority
+              className={`absolute inset-0 mx-auto w-auto max-w-none h-[90vh] sm:h-[95vh] md:h-[98vh] lg:h-screen object-contain object-bottom select-none translate-y-[4%] sm:translate-y-[5%] md:translate-y-[5.5%] transition-opacity duration-500 ease-out ${
+                hoveredDesk === "/desk_3.png" ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             />
             {/* Alternate Desk on Capture Hover (desk_4.png) */}
