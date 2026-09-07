@@ -320,6 +320,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://static.semrush.com/academy/certificates/6b3e7c6039/amandi-dassanayake_1.pdf",
     logo: semrushLogo,
+    badgeImage: "/badges/1.png",
     badgeType: "Semrush Academy",
   },
   {
@@ -334,6 +335,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://static.semrush.com/academy/certificates/6adbefc723/amandi-dassanayake_1.pdf",
     logo: semrushLogo,
+    badgeImage: "/badges/1.png",
     badgeType: "Semrush Academy",
   },
   {
@@ -348,6 +350,7 @@ export const certificatesList: CertificateItem[] = [
     credentialUrl:
       "https://static.semrush.com/academy/certificates/331910c0c5/amandi-dassanayake_34.pdf",
     logo: semrushLogo,
+    badgeImage: "/badges/1.png",
     badgeType: "Semrush Academy",
   },
   {
@@ -566,8 +569,8 @@ export default function CertificationsSection() {
           const targetCruiseSpeed = isPausedRef.current
             ? 0
             : isHoveredRef.current
-            ? 0.15
-            : 0.9 * speedMultiplierRef.current;
+              ? 0.15
+              : 0.9 * speedMultiplierRef.current;
 
           currentSpeedRef.current += (targetCruiseSpeed - currentSpeedRef.current) * 0.08;
 
@@ -678,9 +681,8 @@ export default function CertificationsSection() {
     >
       {/* Section Header with Navigation Controls */}
       <div
-        className={`w-full px-6 sm:px-10 md:px-16 pb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-zinc-200/80 transition-all duration-1000 ease-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-        }`}
+        className={`w-full px-6 sm:px-10 md:px-16 pb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-zinc-200/80 transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
       >
         <div>
           <span className="text-xs font-mono-tech text-zinc-400 uppercase tracking-wider block mb-2">
@@ -705,11 +707,10 @@ export default function CertificationsSection() {
                 setIsPaused(false);
               }}
               aria-label="Stream Left to Right"
-              className={`text-xs font-mono-tech transition-all flex items-center gap-1 cursor-pointer group px-2 py-1 rounded hover:bg-zinc-100 ${
-                direction === "right" && !isPaused
+              className={`text-xs font-mono-tech transition-all flex items-center gap-1 cursor-pointer group px-2 py-1 rounded hover:bg-zinc-100 ${direction === "right" && !isPaused
                   ? "text-zinc-950 font-bold"
                   : "text-zinc-400 hover:text-zinc-950"
-              }`}
+                }`}
             >
               <span className="transform group-hover:-translate-x-0.5 transition-transform">←</span>
               <span>REVERSE</span>
@@ -728,11 +729,10 @@ export default function CertificationsSection() {
             <button
               onClick={() => setSpeedMultiplier((prev) => (prev === 1 ? 2 : 1))}
               aria-label="Toggle Scroll Speed"
-              className={`text-xs font-mono-tech transition-colors cursor-pointer px-2 py-0.5 rounded border ${
-                speedMultiplier === 2
+              className={`text-xs font-mono-tech transition-colors cursor-pointer px-2 py-0.5 rounded border ${speedMultiplier === 2
                   ? "bg-zinc-950 text-white border-zinc-950"
                   : "text-zinc-500 border-zinc-200 hover:border-zinc-400"
-              }`}
+                }`}
             >
               {speedMultiplier}X SPEED
             </button>
@@ -744,11 +744,10 @@ export default function CertificationsSection() {
                 setIsPaused(false);
               }}
               aria-label="Stream Right to Left"
-              className={`text-xs font-mono-tech transition-all flex items-center gap-1 cursor-pointer group px-2 py-1 rounded hover:bg-zinc-100 ${
-                direction === "left" && !isPaused
+              className={`text-xs font-mono-tech transition-all flex items-center gap-1 cursor-pointer group px-2 py-1 rounded hover:bg-zinc-100 ${direction === "left" && !isPaused
                   ? "text-zinc-950 font-bold"
                   : "text-zinc-400 hover:text-zinc-950"
-              }`}
+                }`}
             >
               <span>FORWARD</span>
               <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
@@ -767,9 +766,8 @@ export default function CertificationsSection() {
       */}
       <div
         ref={streamContainerRef}
-        className={`w-full overflow-hidden pt-10 pb-6 relative transition-opacity duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        } ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+        className={`w-full overflow-hidden pt-10 pb-6 relative transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
+          } ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
         style={{
           maskImage:
             "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
