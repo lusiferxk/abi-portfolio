@@ -103,11 +103,10 @@ export default function CreateWorld() {
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${
-                    activeFilter === filter
+                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${activeFilter === filter
                       ? "bg-zinc-950 text-white border-zinc-950 shadow-md scale-105"
                       : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
-                  }`}
+                    }`}
                 >
                   {filter}
                 </button>
@@ -182,9 +181,9 @@ export default function CreateWorld() {
         {/* ─── LIVE CAMPAIGNS & SOCIAL MEDIA WORKS ─── */}
         <section className="mt-32 pt-20 border-t border-zinc-200 animate-in fade-in duration-700 delay-300">
           <div className="flex flex-col items-center text-center mb-12">
-            <span className="px-3 py-1 rounded-full text-zinc-500 text-[10px] font-mono-tech uppercase bg-zinc-100 border border-zinc-200 mb-4">
+            {/* <span className="px-3 py-1 rounded-full text-zinc-500 text-[10px] font-mono-tech uppercase bg-zinc-100 border border-zinc-200 mb-4">
               Social Campaigns & Creative Direction
-            </span>
+            </span> */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight uppercase text-zinc-950 mb-4">
               Live Campaigns & Social Media
             </h2>
@@ -196,31 +195,28 @@ export default function CreateWorld() {
             <div className="flex flex-wrap justify-center gap-2">
               <button
                 onClick={() => setSocialFilter("ALL")}
-                className={`px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${
-                  socialFilter === "ALL"
+                className={`px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${socialFilter === "ALL"
                     ? "bg-zinc-950 text-white border-zinc-950 shadow-md"
                     : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
-                }`}
+                  }`}
               >
                 ALL WORKS ({createSocialCampaigns.length})
               </button>
               <button
                 onClick={() => setSocialFilter("MITRA")}
-                className={`px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${
-                  socialFilter === "MITRA"
+                className={`px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${socialFilter === "MITRA"
                     ? "bg-zinc-950 text-white border-zinc-950 shadow-md"
                     : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
-                }`}
+                  }`}
               >
                 MITRA INNOVATION • LINKEDIN (12)
               </button>
               <button
                 onClick={() => setSocialFilter("SYNC2")}
-                className={`px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${
-                  socialFilter === "SYNC2"
+                className={`px-4 py-2 rounded-full text-xs font-mono-tech transition-all border cursor-pointer ${socialFilter === "SYNC2"
                     ? "bg-zinc-950 text-white border-zinc-950 shadow-md"
                     : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-900"
-                }`}
+                  }`}
               >
                 SYNC2 STUDIO • INSTAGRAM (8)
               </button>
@@ -237,9 +233,8 @@ export default function CreateWorld() {
                 {/* Image Container with Platform Badge & Lightbox Click */}
                 <div
                   onClick={() => setSelectedSocial(item)}
-                  className={`relative w-full ${
-                    item.aspectRatio === "portrait" ? "aspect-[4/5]" : "aspect-square"
-                  } bg-zinc-100 overflow-hidden cursor-pointer`}
+                  className={`relative w-full ${item.aspectRatio === "portrait" ? "aspect-[4/5]" : "aspect-square"
+                    } bg-zinc-100 overflow-hidden cursor-pointer`}
                 >
                   <Image
                     src={item.image}
@@ -250,11 +245,10 @@ export default function CreateWorld() {
                   {/* Platform Badge */}
                   <div className="absolute top-3 left-3 z-10">
                     <span
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono-tech font-bold uppercase tracking-wider backdrop-blur-md shadow-sm border ${
-                        item.platform === "LinkedIn"
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono-tech font-bold uppercase tracking-wider backdrop-blur-md shadow-sm border ${item.platform === "LinkedIn"
                           ? "bg-white/90 text-blue-800 border-blue-200"
                           : "bg-white/90 text-pink-700 border-pink-200"
-                      }`}
+                        }`}
                     >
                       {item.platform === "LinkedIn" ? "in LinkedIn" : "IG Instagram"}
                     </span>
@@ -500,9 +494,8 @@ export default function CreateWorld() {
                         className="group flex flex-col rounded-xl border border-zinc-200 bg-white overflow-hidden hover:border-zinc-300 hover:shadow-md transition-all"
                       >
                         <div
-                          className={`relative w-full ${
-                            item.aspectRatio === "portrait" ? "aspect-[4/5]" : "aspect-square"
-                          } bg-zinc-100 overflow-hidden`}
+                          className={`relative w-full ${item.aspectRatio === "portrait" ? "aspect-[4/5]" : "aspect-square"
+                            } bg-zinc-100 overflow-hidden`}
                         >
                           <Image
                             src={item.url}
@@ -610,11 +603,10 @@ export default function CreateWorld() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-mono-tech font-bold uppercase tracking-wider border ${
-                      selectedSocial.platform === "LinkedIn"
+                    className={`px-3 py-1 rounded-full text-xs font-mono-tech font-bold uppercase tracking-wider border ${selectedSocial.platform === "LinkedIn"
                         ? "bg-blue-50 text-blue-800 border-blue-200"
                         : "bg-pink-50 text-pink-700 border-pink-200"
-                    }`}
+                      }`}
                   >
                     {selectedSocial.platform}
                   </span>
