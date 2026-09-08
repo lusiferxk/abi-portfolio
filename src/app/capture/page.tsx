@@ -84,14 +84,16 @@ export default function CaptureWorld() {
 
   return (
     <div className="min-h-screen bg-white text-zinc-950 font-sans-clean selection:bg-zinc-200">
-      {/* Return Link */}
-      <div className="fixed top-6 left-6 z-40 mix-blend-difference text-white">
+      {/* Plain Return Button */}
+      <div className="fixed top-6 left-6 z-50">
         <Link
           href="/"
-          className="group flex items-center gap-2 px-4 py-2 bg-transparent rounded-full border border-white/20 text-sm font-mono-tech hover:bg-white hover:text-black transition-all"
+          className="text-xs font-mono-tech text-zinc-400 hover:text-zinc-950 transition-colors flex items-center gap-2 cursor-pointer group"
         >
-          <span className="transition-transform group-hover:-translate-x-1">←</span>
-          RETURN
+          <span className="transform group-hover:-translate-x-1 transition-transform">
+            ←
+          </span>
+          <span>RETURN</span>
         </Link>
       </div>
 
@@ -150,10 +152,16 @@ export default function CaptureWorld() {
                     />
 
                     {/* Hover Metadata Overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 ${isHovered ? "opacity-100" : ""}`}>
-                      <div className="absolute bottom-0 left-0 p-6 text-white">
-                        <h3 className="text-xl font-bold font-heading mb-1 drop-shadow-md">
-                          {item.project.title}
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 ${isHovered ? "opacity-100" : ""}`}>
+                      {item.media.type === "video" && (
+                        <div className="absolute top-4 right-4 bg-red-600/90 text-white text-[10px] font-mono-tech px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md">
+                          <span>▶</span>
+                          <span>VIDEO</span>
+                        </div>
+                      )}
+                      <div className="absolute bottom-0 left-0 p-5 text-white">
+                        <h3 className="text-lg font-bold font-heading mb-1 drop-shadow-md leading-snug">
+                          {item.media.title || item.project.title}
                         </h3>
                         <p className="text-[10px] font-mono-tech uppercase tracking-widest text-white/80 drop-shadow-md">
                           {item.project.category.join(" · ")} {item.project.year && `· ${item.project.year}`}
@@ -171,6 +179,54 @@ export default function CaptureWorld() {
           )}
         </section>
 
+        {/* Published Photography Sets on Facebook */}
+        <section className="mt-28 pt-16 border-t border-zinc-100 animate-in fade-in duration-1000 delay-500">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-[11px] font-mono-tech uppercase tracking-widest text-zinc-400 block mb-2">
+              Published Shoots & Albums
+            </span>
+            <h2 className="text-3xl font-bold font-heading uppercase text-zinc-950 mb-3">
+              Editorial Sets on Facebook
+            </h2>
+            <p className="text-sm text-zinc-500 font-sans-clean">
+              Original photography collections, stories, and editorial sets published across social media.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto">
+            {[
+              { title: "Photography Set 01", url: "https://www.facebook.com/share/1VaRPn5NTb/" },
+              { title: "Photography Set 02", url: "https://www.facebook.com/share/19KjBfnbqB/" },
+              { title: "Photography Set 03", url: "https://www.facebook.com/share/14npFnPp3e2/" },
+              { title: "Photography Set 04", url: "https://www.facebook.com/share/1L8REPbzUr/" },
+              { title: "Photography Set 05", url: "https://www.facebook.com/share/1K84M8qYWv/" },
+              { title: "Photography Set 06", url: "https://www.facebook.com/share/1Ed2ayn4D1/" },
+              { title: "Photography Set 07", url: "https://www.facebook.com/share/19BNVTzn82/" },
+              { title: "Photography Set 08", url: "https://www.facebook.com/share/1Mw9XKW4Wg/" },
+            ].map((set, idx) => (
+              <a
+                key={set.url}
+                href={set.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-3.5 bg-zinc-50 hover:bg-zinc-900 rounded-xl border border-zinc-200/80 hover:border-zinc-900 transition-all text-left"
+              >
+                <div>
+                  <span className="text-[10px] font-mono-tech text-zinc-400 group-hover:text-zinc-500 block">
+                    SHOOT 0{idx + 1}
+                  </span>
+                  <span className="text-xs font-bold font-sans-clean text-zinc-900 group-hover:text-white transition-colors">
+                    {set.title}
+                  </span>
+                </div>
+                <span className="text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-xs font-mono-tech">
+                  ↗
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+
       </main>
 
       {/* Media Viewer Lightbox */}
@@ -180,7 +236,7 @@ export default function CaptureWorld() {
           {/* Controls */}
           <button
             onClick={() => setSelectedIndex(null)}
-            className="absolute top-6 right-6 z-50 p-4 text-white/50 hover:text-white transition-colors"
+            className="absolute top-6 right-6 z-50 p-4 text-white/50 hover:text-white transition-colors text-xl"
             title="Close (Esc)"
           >
             ✕
@@ -222,11 +278,11 @@ export default function CaptureWorld() {
             </div>
 
             {/* Viewer Metadata */}
-            <div className="w-full max-w-3xl mt-8 text-center px-4 shrink-0">
-              <h2 className="text-2xl font-bold font-heading mb-2">
-                {galleryItems[selectedIndex].project.title}
+            <div className="w-full max-w-3xl mt-6 text-center px-4 shrink-0">
+              <h2 className="text-2xl font-bold font-heading mb-1">
+                {galleryItems[selectedIndex].media.title || galleryItems[selectedIndex].project.title}
               </h2>
-              <div className="flex flex-wrap justify-center gap-3 text-xs font-mono-tech text-white/60 uppercase tracking-widest mb-4">
+              <div className="flex flex-wrap justify-center gap-2.5 text-xs font-mono-tech text-white/60 uppercase tracking-widest mb-3">
                 <span>{galleryItems[selectedIndex].project.category.join(" · ")}</span>
                 {galleryItems[selectedIndex].project.year && (
                   <span>· {galleryItems[selectedIndex].project.year}</span>
@@ -236,9 +292,32 @@ export default function CaptureWorld() {
                 )}
               </div>
               {galleryItems[selectedIndex].project.description && (
-                <p className="text-sm font-sans-clean text-white/80 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-sm font-sans-clean text-white/80 max-w-2xl mx-auto leading-relaxed mb-4">
                   {galleryItems[selectedIndex].project.description}
                 </p>
+              )}
+
+              {/* Direct Asset Link (Normalized Google Drive, YouTube, etc.) */}
+              {(galleryItems[selectedIndex].media.source || galleryItems[selectedIndex].project.source) && (
+                <div className="flex justify-center">
+                  <a
+                    href={galleryItems[selectedIndex].media.source || galleryItems[selectedIndex].project.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 hover:bg-white text-white hover:text-black rounded-full text-xs font-mono-tech transition-all border border-white/20 shadow-md group"
+                  >
+                    <span>
+                      {galleryItems[selectedIndex].media.type === "video"
+                        ? "WATCH ON YOUTUBE"
+                        : (galleryItems[selectedIndex].media.source || galleryItems[selectedIndex].project.source).includes("drive.google.com")
+                          ? "VIEW ON GOOGLE DRIVE"
+                          : (galleryItems[selectedIndex].media.source || galleryItems[selectedIndex].project.source).includes("facebook.com")
+                            ? "VIEW ON FACEBOOK"
+                            : "VIEW ORIGINAL ASSET"}
+                    </span>
+                    <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                  </a>
+                </div>
               )}
             </div>
 

@@ -107,14 +107,16 @@ export default function BuildWorld() {
 
   return (
     <div className="min-h-screen bg-white text-zinc-950 font-sans-clean selection:bg-zinc-200">
-      {/* Return Link - Consistent with /create and /capture */}
-      <div className="fixed top-6 left-6 z-40">
+      {/* Plain Return Button */}
+      <div className="fixed top-6 left-6 z-50">
         <Link
           href="/"
-          className="group flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-md rounded-full border border-zinc-200 text-sm font-mono-tech text-zinc-600 hover:text-zinc-950 hover:bg-zinc-50 transition-all shadow-sm hover:shadow"
+          className="text-xs font-mono-tech text-zinc-400 hover:text-zinc-950 transition-colors flex items-center gap-2 cursor-pointer group"
         >
-          <span className="transition-transform group-hover:-translate-x-1">←</span>
-          RETURN
+          <span className="transform group-hover:-translate-x-1 transition-transform">
+            ←
+          </span>
+          <span>RETURN</span>
         </Link>
       </div>
 

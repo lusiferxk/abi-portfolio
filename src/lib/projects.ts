@@ -5,6 +5,8 @@ export interface ProjectMedia {
   alt?: string;
   aspectRatio?: "portrait" | "landscape" | "square" | "wide" | "cinematic";
   type?: "image" | "video";
+  source?: string;
+  title?: string;
 }
 
 export interface Project {
@@ -302,28 +304,437 @@ export const captureProjects: Project[] = [
     world: "CAPTURE",
     category: ["Film", "Cinematography"],
     role: "Director / Cinematographer",
-    source: "https://drive.google.com/file/d/12Gs0qR9DmCSfmiBYpmSMKg7uHIH9Aswa/view?usp=sharing",
+    source: "https://drive.google.com/file/d/12Gs0qR9DmCSfmiBYpmSMKg7uHIH9Aswa/view?usp=drive_link",
     featured: true,
     description: "A narrative short film exploring the complexities of identity through visual storytelling. Directed, shot, and edited with a focus on atmospheric lighting, character composition, and psychological narrative tension.",
-    coverImage: "/worlds/multipersonal_disorder.jpg",
+    coverImage: "/worlds/capture/drive_12Gs0qR9DmCSfmiBYpmSMKg7uHIH9Aswa.jpg",
     year: "2024",
     media: [
-      { url: "/worlds/multipersonal_disorder.jpg", alt: "Multipersonal Disorder Cinematic Frame", aspectRatio: "cinematic", type: "image" }
+      {
+        url: "/worlds/capture/drive_12Gs0qR9DmCSfmiBYpmSMKg7uHIH9Aswa.jpg",
+        alt: "Multipersonal Disorder Narrative Frame",
+        aspectRatio: "wide",
+        type: "image",
+        source: "https://drive.google.com/file/d/12Gs0qR9DmCSfmiBYpmSMKg7uHIH9Aswa/view?usp=drive_link",
+        title: "Multipersonal Disorder — Narrative Frame"
+      },
+      {
+        url: "/worlds/multipersonal_disorder.jpg",
+        alt: "Multipersonal Disorder Key Visual",
+        aspectRatio: "cinematic",
+        type: "image",
+        source: "https://drive.google.com/file/d/12Gs0qR9DmCSfmiBYpmSMKg7uHIH9Aswa/view?usp=drive_link",
+        title: "Multipersonal Disorder — Key Visual"
+      }
+    ]
+  },
+  {
+    id: "hinehnathuru-man",
+    title: "Hinahena Thuru Man — Official Music Video",
+    world: "CAPTURE",
+    category: ["Film", "Cinematography"],
+    role: "Cinematographer / Visual Direction",
+    source: "https://youtu.be/XtSNq1aVROY?si=giTcxKgHLOwehNxf",
+    featured: true,
+    description: "Official music video for 'Hinahena Thuru Man' by Bhagya Deepathi. Cinematic color grading, emotional visual pacing, and narrative storytelling through intentional light and framing.",
+    coverImage: "/worlds/capture/yt_XtSNq1aVROY.jpg",
+    year: "2024",
+    assetStatus: "available",
+    media: [
+      {
+        url: "/worlds/capture/yt_XtSNq1aVROY.jpg",
+        alt: "Hinahena Thuru Man Official Music Video",
+        aspectRatio: "wide",
+        type: "video",
+        source: "https://youtu.be/XtSNq1aVROY?si=giTcxKgHLOwehNxf",
+        title: "Hinahena Thuru Man — Official Music Video"
+      }
+    ]
+  },
+  {
+    id: "cinematography-frames",
+    title: "Cinematography & Production Studies",
+    world: "CAPTURE",
+    category: ["Cinematography", "Film"],
+    role: "Cinematographer",
+    source: "https://drive.google.com/file/d/1nAuPbwa7VMBtRtTsGyPXkbhHKd0Uk7_-/view?usp=drive_link",
+    featured: true,
+    description: "Framing studies, aspect ratio exploration, camera placement, and visual storytelling captured on location and production sets.",
+    coverImage: "/worlds/capture/drive_1nAuPbwa7VMBtRtTsGyPXkbhHKd0Uk7_-.png",
+    year: "2024",
+    media: [
+      {
+        url: "/worlds/capture/drive_1nAuPbwa7VMBtRtTsGyPXkbhHKd0Uk7_-.png",
+        alt: "Cinematic Horizon & Sky Gradient",
+        aspectRatio: "cinematic",
+        type: "image",
+        source: "https://drive.google.com/file/d/1nAuPbwa7VMBtRtTsGyPXkbhHKd0Uk7_-/view?usp=drive_link",
+        title: "Cinematic Horizon Study"
+      },
+      {
+        url: "/worlds/capture/drive_1HwjsnzuKETFVM9tOzO2i0RYAGN_LWWQ3.jpg",
+        alt: "Location Scale & Urban Geometry",
+        aspectRatio: "wide",
+        type: "image",
+        source: "https://drive.google.com/file/d/1HwjsnzuKETFVM9tOzO2i0RYAGN_LWWQ3/view?usp=drive_link",
+        title: "Location Scale & Urban Framing"
+      },
+      {
+        url: "/worlds/capture/drive_1IHMYWKJefo6oOolfUeeUm9QdytAm6Xqj.jpg",
+        alt: "On-Set Production BTS Study",
+        aspectRatio: "wide",
+        type: "image",
+        source: "https://drive.google.com/file/d/1IHMYWKJefo6oOolfUeeUm9QdytAm6Xqj/view?usp=drive_link",
+        title: "On-Set BTS & Equipment Framing"
+      }
+    ]
+  },
+  {
+    id: "urban-architecture",
+    title: "Urban Geometry & Architecture",
+    world: "CAPTURE",
+    category: ["Photography"],
+    role: "Photographer",
+    source: "https://drive.google.com/file/d/1ahb02IU9ZFn9D1FVNbc7d8Sc2nITKaaa/view?usp=drive_link",
+    featured: true,
+    description: "Exploring vertical perspectives, structural geometry, and ambient light across modern skyscrapers and historical shrines.",
+    coverImage: "/worlds/capture/drive_1ahb02IU9ZFn9D1FVNbc7d8Sc2nITKaaa.png",
+    year: "2024",
+    media: [
+      {
+        url: "/worlds/capture/drive_1ahb02IU9ZFn9D1FVNbc7d8Sc2nITKaaa.png",
+        alt: "Skyward Perspective of Skyscraper",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1ahb02IU9ZFn9D1FVNbc7d8Sc2nITKaaa/view?usp=drive_link",
+        title: "Skyward Monolith"
+      },
+      {
+        url: "/worlds/capture/drive_10WTPofiTH8AyuAS0DpF0WP1kx17pEZ9j.png",
+        alt: "Night Skyscraper & City Street",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/10WTPofiTH8AyuAS0DpF0WP1kx17pEZ9j/view?usp=drive_link",
+        title: "Metropolis Glow"
+      },
+      {
+        url: "/worlds/capture/drive_1kwNOa-TCSKyHx15B2kE2LMP76NTtNTIp.png",
+        alt: "Terracotta & Viridian Geometry",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1kwNOa-TCSKyHx15B2kE2LMP76NTtNTIp/view?usp=drive_link",
+        title: "Terracotta & Viridian Geometry"
+      },
+      {
+        url: "/worlds/capture/drive_156yvCOorG_u00SENe8uFg5lw6ae52yT4.png",
+        alt: "Twilight Sanctuary Church",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/156yvCOorG_u00SENe8uFg5lw6ae52yT4/view?usp=drive_link",
+        title: "Twilight Sanctuary"
+      },
+      {
+        url: "/worlds/capture/drive_1dGYYPGWWmnz_pTVXMD0f_PJ1qcqxDWFn.png",
+        alt: "Gothic Spire & Wire Grid",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1dGYYPGWWmnz_pTVXMD0f_PJ1qcqxDWFn/view?usp=drive_link",
+        title: "Spire & Power Lines"
+      },
+      {
+        url: "/worlds/capture/drive_1SXiAPUPAgqPmHLc4oftVaKPF6fu3enx-.png",
+        alt: "Minaret Architecture & Sky",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1SXiAPUPAgqPmHLc4oftVaKPF6fu3enx-/view?usp=drive_link",
+        title: "Minaret & Light Tower"
+      },
+      {
+        url: "/worlds/capture/drive_1YhmIULEc6c6INgzVIPbx3n379pWmB98H.png",
+        alt: "Golden Gopuram at Midnight",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1YhmIULEc6c6INgzVIPbx3n379pWmB98H/view?usp=drive_link",
+        title: "Golden Gopuram at Midnight"
+      }
+    ]
+  },
+  {
+    id: "night-atmosphere",
+    title: "Night Atmosphere & Light Trails",
+    world: "CAPTURE",
+    category: ["Photography", "Experimental"],
+    role: "Photographer",
+    source: "https://drive.google.com/file/d/1manU8LPXbwLjkQ1OzbLpfwHBY7tFubE5/view?usp=drive_link",
+    featured: true,
+    description: "Capturing nocturnal energy through long exposure light trails, streetlight geometry, festoon glow, and nighttime solitude.",
+    coverImage: "/worlds/capture/drive_1manU8LPXbwLjkQ1OzbLpfwHBY7tFubE5.png",
+    year: "2024",
+    media: [
+      {
+        url: "/worlds/capture/drive_1manU8LPXbwLjkQ1OzbLpfwHBY7tFubE5.png",
+        alt: "Urban Long Exposure Velocity",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1manU8LPXbwLjkQ1OzbLpfwHBY7tFubE5/view?usp=drive_link",
+        title: "Urban Velocity"
+      },
+      {
+        url: "/worlds/capture/drive_1G8ZWmBBGTnubBwsOqES_tX4aERPrlbA5.png",
+        alt: "Festoon Lights & Night Canopy",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1G8ZWmBBGTnubBwsOqES_tX4aERPrlbA5/view?usp=drive_link",
+        title: "Festoon Canopy"
+      },
+      {
+        url: "/worlds/capture/drive_1gIjvmVnwPdh8iKIeqgLWGWbihu_JrxZi.png",
+        alt: "Bokeh Light Tree Crossroads",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1gIjvmVnwPdh8iKIeqgLWGWbihu_JrxZi/view?usp=drive_link",
+        title: "Crossroads Nocturne"
+      },
+      {
+        url: "/worlds/capture/drive_1aApIYlksvA5iDSKjo2JHrLfjjHneyJci.png",
+        alt: "Street Lamp & Silhouette Birds",
+        aspectRatio: "square",
+        type: "image",
+        source: "https://drive.google.com/file/d/1aApIYlksvA5iDSKjo2JHrLfjjHneyJci/view?usp=drive_link",
+        title: "Perch by the Lamp"
+      },
+      {
+        url: "/worlds/capture/drive_1jDqXMNtakW02ZAnR8t29ZIfTrGkPZ_DA.png",
+        alt: "Convex Mirror & Grid Cables",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1jDqXMNtakW02ZAnR8t29ZIfTrGkPZ_DA/view?usp=drive_link",
+        title: "Convex Reflection"
+      }
+    ]
+  },
+  {
+    id: "cycling-series",
+    title: "Peloton — Cycling & Road Action",
+    world: "CAPTURE",
+    category: ["Photography"],
+    role: "Photographer",
+    source: "https://drive.google.com/file/d/1ApWV_w4fmsv5pEPx8ApHYS08j7XFa3G8/view?usp=drive_link",
+    featured: true,
+    description: "Action documentary series capturing cyclists traversing long open roads, shaded avenues, and training sessions.",
+    coverImage: "/worlds/capture/drive_1ApWV_w4fmsv5pEPx8ApHYS08j7XFa3G8.jpg",
+    year: "2024",
+    media: [
+      {
+        url: "/worlds/capture/drive_1ApWV_w4fmsv5pEPx8ApHYS08j7XFa3G8.jpg",
+        alt: "Cyclists Under Tree Canopy",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1ApWV_w4fmsv5pEPx8ApHYS08j7XFa3G8/view?usp=drive_link",
+        title: "Tree Tunnel Peloton"
+      },
+      {
+        url: "/worlds/capture/drive_1Dx6UP87WEz0MIztg00fH1W1NZ-RVRnsD.jpg",
+        alt: "Road Cyclist on Open Tarmac",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1Dx6UP87WEz0MIztg00fH1W1NZ-RVRnsD/view?usp=drive_link",
+        title: "Solo Breakaway"
+      },
+      {
+        url: "/worlds/capture/drive_1QgHpVoe0Vo9-Sxc4t-iok8gytRIxbcol.jpg",
+        alt: "Cyclist Kit Detail",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1QgHpVoe0Vo9-Sxc4t-iok8gytRIxbcol/view?usp=drive_link",
+        title: "Peloton Pace"
+      },
+      {
+        url: "/worlds/capture/drive_1Br8tkMsnie0A871jqWOxGpa_P4oQvUkZ.jpg",
+        alt: "Cyclist Audio Experience Story",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1Br8tkMsnie0A871jqWOxGpa_P4oQvUkZ/view?usp=drive_link",
+        title: "Rider Testimonial"
+      }
+    ]
+  },
+  {
+    id: "landscape-silhouettes",
+    title: "Atmospheric Skies & Silhouettes",
+    world: "CAPTURE",
+    category: ["Photography"],
+    role: "Photographer",
+    source: "https://drive.google.com/file/d/1xMTd669pGVyROV6QUwho9PrggeakfTrD/view?usp=drive_link",
+    featured: true,
+    description: "Studies of dusk palettes, power transmission pylons, fine art winter silhouettes, and minimal horizons.",
+    coverImage: "/worlds/capture/drive_1xMTd669pGVyROV6QUwho9PrggeakfTrD.png",
+    year: "2024",
+    media: [
+      {
+        url: "/worlds/capture/drive_1xMTd669pGVyROV6QUwho9PrggeakfTrD.png",
+        alt: "Neon Magenta Dusk Sky",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1xMTd669pGVyROV6QUwho9PrggeakfTrD/view?usp=drive_link",
+        title: "Magenta Twilight"
+      },
+      {
+        url: "/worlds/capture/drive_16AttX1RZWA-F3sgeaP0CIXjnhBvjzikP.png",
+        alt: "Sunset Through Rearview Mirror",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/16AttX1RZWA-F3sgeaP0CIXjnhBvjzikP/view?usp=drive_link",
+        title: "Rearview Horizon"
+      },
+      {
+        url: "/worlds/capture/drive_1ZvgLfVMuWjBj0EaY_JWxUjg9ZPC_oST-.png",
+        alt: "Power Transmission Pylon",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1ZvgLfVMuWjBj0EaY_JWxUjg9ZPC_oST-/view?usp=drive_link",
+        title: "Transmission Silhouette"
+      },
+      {
+        url: "/worlds/capture/drive_1GvEMnCE1023cmXHWxmo6x0nwqHMnf2JL.png",
+        alt: "Fine Art Bare Tree Branches",
+        aspectRatio: "square",
+        type: "image",
+        source: "https://drive.google.com/file/d/1GvEMnCE1023cmXHWxmo6x0nwqHMnf2JL/view?usp=drive_link",
+        title: "Winter Fractal"
+      },
+      {
+        url: "/worlds/capture/drive_1aoTBo6KT-LUO4Nz1h_AJpnKg0LJBk7Oe.png",
+        alt: "Silhouetted Tree Cyan Twilight",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1aoTBo6KT-LUO4Nz1h_AJpnKg0LJBk7Oe/view?usp=drive_link",
+        title: "Dusk Silhouette"
+      },
+      {
+        url: "/worlds/capture/drive_1Ud-GsqHKIaTte7kPJXgDp1jQUqNcPfoR.png",
+        alt: "Solitary Tree Spire Gradient",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1Ud-GsqHKIaTte7kPJXgDp1jQUqNcPfoR/view?usp=drive_link",
+        title: "Cypress Point"
+      },
+      {
+        url: "/worlds/capture/drive_1VkPcFSq0kgoFVM_9iejwGbduct9o0bw8.png",
+        alt: "Interlude Golden Horizon",
+        aspectRatio: "wide",
+        type: "image",
+        source: "https://drive.google.com/file/d/1VkPcFSq0kgoFVM_9iejwGbduct9o0bw8/view?usp=drive_link",
+        title: "Golden Horizon Interlude"
+      }
+    ]
+  },
+  {
+    id: "photographics",
+    title: "Photographics & Editorial Visuals",
+    world: "CAPTURE",
+    category: ["Photography"],
+    role: "Photographer",
+    source: "https://drive.google.com/file/d/1lwnDNsQ2LROqrWDOSgbHaAwOc8ag7WQE/view?usp=drive_link",
+    featured: true,
+    description: "Street life snapshots, editorial narrative boards, and human observation across urban spaces.",
+    coverImage: "/worlds/capture/drive_1qeSmxwQH8QnYwcV3R6EWFspebhbyGekx.png",
+    year: "2024",
+    galleryUrls: [
+      "https://www.facebook.com/share/1VaRPn5NTb/",
+      "https://www.facebook.com/share/19KjBfnbqB/",
+      "https://www.facebook.com/share/14npFnPp3e2/",
+      "https://www.facebook.com/share/1L8REPbzUr/",
+      "https://www.facebook.com/share/1K84M8qYWv/",
+      "https://www.facebook.com/share/1Ed2ayn4D1/",
+      "https://www.facebook.com/share/19BNVTzn82/",
+      "https://www.facebook.com/share/1Mw9XKW4Wg/"
+    ],
+    media: [
+      {
+        url: "/worlds/capture/drive_1qeSmxwQH8QnYwcV3R6EWFspebhbyGekx.png",
+        alt: "Bus Stop Street Scene",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1qeSmxwQH8QnYwcV3R6EWFspebhbyGekx/view?usp=drive_link",
+        title: "Bus Stop Framing"
+      },
+      {
+        url: "/worlds/capture/drive_1lwnDNsQ2LROqrWDOSgbHaAwOc8ag7WQE.jpg",
+        alt: "Short Story Editorial Card",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1lwnDNsQ2LROqrWDOSgbHaAwOc8ag7WQE/view?usp=drive_link",
+        title: "Short Story — Editorial"
+      },
+      {
+        url: "/worlds/capture/drive_13BvziLwAvGETlLLQnmejmiS9Tvs8JqT2.jpg",
+        alt: "Creative Brainstorming Wall",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/13BvziLwAvGETlLLQnmejmiS9Tvs8JqT2/view?usp=drive_link",
+        title: "Creative Ideation Wall"
+      },
+      {
+        url: "/worlds/photographics_1.jpg",
+        alt: "Editorial Portrait",
+        aspectRatio: "portrait",
+        type: "image",
+        source: "https://drive.google.com/file/d/1lwnDNsQ2LROqrWDOSgbHaAwOc8ag7WQE/view?usp=drive_link",
+        title: "Editorial Portrait"
+      },
+      {
+        url: "/worlds/photographics_2.jpg",
+        alt: "Documentary Shot",
+        aspectRatio: "landscape",
+        type: "image",
+        source: "https://drive.google.com/file/d/1lwnDNsQ2LROqrWDOSgbHaAwOc8ag7WQE/view?usp=drive_link",
+        title: "Documentary Still"
+      }
+    ]
+  },
+  {
+    id: "product-brand-visuals",
+    title: "Product Presentation & Packaging",
+    world: "CAPTURE",
+    category: ["Photography"],
+    role: "Visual Creator",
+    source: "https://drive.google.com/file/d/1t7mhF7xJZV05OqQaKxTXZ2dQI1aUxohY/view?usp=drive_link",
+    featured: false,
+    description: "Clean studio and presentation photography showcasing brand assets and corporate design execution.",
+    coverImage: "/worlds/capture/drive_1t7mhF7xJZV05OqQaKxTXZ2dQI1aUxohY.jpg",
+    year: "2024",
+    media: [
+      {
+        url: "/worlds/capture/drive_1t7mhF7xJZV05OqQaKxTXZ2dQI1aUxohY.jpg",
+        alt: "WSO2 Brand Presentation Package",
+        aspectRatio: "wide",
+        type: "image",
+        source: "https://drive.google.com/file/d/1t7mhF7xJZV05OqQaKxTXZ2dQI1aUxohY/view?usp=drive_link",
+        title: "WSO2 Presentation Package"
+      }
     ]
   },
   {
     id: "wso2-stop-motion",
     title: "WSO2 Stop Motion",
     world: "CAPTURE",
-    category: ["Videography", "Experimental", "Stop Motion"],
-    role: "", // No invented role
+    category: ["Videography", "Experimental"],
+    role: "Motion Creator",
     source: "https://www.linkedin.com/posts/abi-amandi-1877391b0_internship-wso2-stopmotion-activity-7244143434859511808-vypb",
     featured: true,
     description: "Creative stop-motion animation project for WSO2.",
     coverImage: "/worlds/wso2_stopmotion.jpg",
     year: "2024",
     media: [
-      { url: "/worlds/wso2_stopmotion.jpg", alt: "WSO2 Stop Motion Frame", aspectRatio: "wide", type: "image" }
+      {
+        url: "/worlds/wso2_stopmotion.jpg",
+        alt: "WSO2 Stop Motion Frame",
+        aspectRatio: "wide",
+        type: "image",
+        source: "https://www.linkedin.com/posts/abi-amandi-1877391b0_internship-wso2-stopmotion-activity-7244143434859511808-vypb",
+        title: "WSO2 Stop Motion Animation"
+      }
     ]
   },
   {
@@ -331,60 +742,44 @@ export const captureProjects: Project[] = [
     title: "Forced Perspective Video",
     world: "CAPTURE",
     category: ["Videography", "Experimental"],
-    role: "", // No invented role
+    role: "Visual Experimenter",
     source: "https://drive.google.com/drive/folders/1HvsveswetNSVmxOPpv4kLr0rPxKatY4R",
     featured: true,
     description: "Experimental video project using forced perspective techniques to create visual illusions.",
     coverImage: "/worlds/forced_perspective.jpg",
     year: "2024",
     media: [
-      { url: "/worlds/forced_perspective.jpg", alt: "Forced Perspective Illusions", aspectRatio: "landscape", type: "image" }
-    ]
-  },
-  {
-    id: "photographics",
-    title: "Photographics",
-    world: "CAPTURE",
-    category: ["Photography"],
-    role: "",
-    source: "https://drive.google.com/file/d/1lwnDNsQ2LROqrWDOSgbHaAwOc8ag7WQE/edit",
-    featured: true,
-    description: "A curated photography portfolio spanning multiple genres.",
-    coverImage: "/worlds/photographics_1.jpg",
-    year: "2024",
-    media: [
-      { url: "/worlds/photographics_1.jpg", alt: "Editorial Portrait", aspectRatio: "portrait", type: "image" },
-      { url: "/worlds/photographics_2.jpg", alt: "Documentary Shot", aspectRatio: "landscape", type: "image" }
+      {
+        url: "/worlds/forced_perspective.jpg",
+        alt: "Forced Perspective Illusions",
+        aspectRatio: "landscape",
+        type: "image",
+        source: "https://drive.google.com/drive/folders/1HvsveswetNSVmxOPpv4kLr0rPxKatY4R",
+        title: "Forced Perspective Illusions"
+      }
     ]
   },
   {
     id: "ai-song",
     title: "AI Song",
     world: "CAPTURE",
-    category: ["Experimental", "Audio Visual"],
-    role: "",
-    source: "https://drive.google.com/file/d/19P_qN_49i4xuKCckZNSeoSIyZ6zKFtjx/view?usp=sharing",
+    category: ["Experimental"],
+    role: "Audio Visual Producer",
+    source: "https://drive.google.com/file/d/19P_qN_49i4xuKCckZNSeoSIyZ6zKFtjx/view?usp=drive_link",
     featured: false,
     description: "An experimental project blending audio with visual design.",
     coverImage: "/worlds/ai_song.jpg",
     year: "2024",
     media: [
-      { url: "/worlds/ai_song.jpg", alt: "AI Song Audio Visual", aspectRatio: "square", type: "image" }
+      {
+        url: "/worlds/ai_song.jpg",
+        alt: "AI Song Audio Visual",
+        aspectRatio: "square",
+        type: "image",
+        source: "https://drive.google.com/file/d/19P_qN_49i4xuKCckZNSeoSIyZ6zKFtjx/view?usp=drive_link",
+        title: "AI Song Cover Art"
+      }
     ]
-  },
-  {
-    id: "hinehnathuru-man",
-    title: "Hinehnathuru Man",
-    world: "CAPTURE",
-    category: ["Film", "Music", "Visual"],
-    role: "",
-    source: "#",
-    featured: false,
-    description: "A music and visual art project combining original melody composition with creative visual storytelling.",
-    coverImage: "/worlds/film-production.jpg",
-    year: "2024",
-    assetStatus: "awaiting-source",
-    media: [] // No media to render currently
   }
 ];
 
