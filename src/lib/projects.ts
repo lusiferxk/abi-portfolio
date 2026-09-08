@@ -43,6 +43,244 @@ export interface Project {
   galleryUrls?: string[]; // For collections of works (like Mitra LinkedIn posts)
 }
 
+export interface SocialCampaignItem {
+  id: string;
+  client: "Mitra Innovation" | "Sync2 Brand";
+  platform: "LinkedIn" | "Instagram";
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  aspectRatio: "square" | "portrait";
+  source: string;
+}
+
+export const createSocialCampaigns: SocialCampaignItem[] = [
+  // ─── SYNC2 BRAND (INSTAGRAM) ───
+  {
+    id: "sync2-01",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Search Visibility & SEO Growth",
+    description: "If customers can't find you on search, they can't choose your business. We build systems that put you in front of people actively searching for what you do.",
+    category: "SEO & Search",
+    image: "/worlds/create/sync2_01.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTz1hSwj5SI/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-02",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Brand Communication Architecture",
+    description: "Your brand is communicating every day through your website, socials, and design. Make sure it's saying the right thing consistently.",
+    category: "Branding",
+    image: "/worlds/create/sync2_02.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTxPk-IiTdm/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-03",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Targeted Paid Advertising",
+    description: "At Sync2, we run paid advertising across social and search with clear ROI, laser targeting, and creative conversion design.",
+    category: "Paid Media",
+    image: "/worlds/create/sync2_03.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTsF_Nkgcgi/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-04",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "End-to-End Social Management",
+    description: "At Sync2, we handle your socials end to end: planning the content, creating high-impact visuals, and engaging your core audience.",
+    category: "Content Design",
+    image: "/worlds/create/sync2_04.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTphiJsEqBm/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-05",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Brand Clarity & Systematic Identity",
+    description: "Too many ideas. Too many vendors. Too much confusion. Your brand doesn't need more noise, it needs synchronized clarity.",
+    category: "Branding",
+    image: "/worlds/create/sync2_05.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTm8ZeyDLBq/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-06",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Strategy to Screens System",
+    description: "At Sync2, we build complete brand systems from strategy to screens, crafting visual identities that command authority.",
+    category: "Graphic Design",
+    image: "/worlds/create/sync2_06.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTkc2Cyj13A/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-07",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Ideas Synced into Real Output",
+    description: "No guesswork. No disconnected services. Just ideas synced into real outcomes and memorable brand experiences.",
+    category: "Brand Strategy",
+    image: "/worlds/create/sync2_07.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTjzjNkFw3i/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+  {
+    id: "sync2-08",
+    client: "Sync2 Brand",
+    platform: "Instagram",
+    title: "Digital Products & AR Experiences",
+    description: "At Sync2, we build digital products, immersive AR experiences, and smart marketing systems that move businesses forward.",
+    category: "UI/UX & AR",
+    image: "/worlds/create/sync2_08.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.instagram.com/p/DTH1gD1EWQx/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+  },
+
+  // ─── MITRA INNOVATION (LINKEDIN) ───
+  {
+    id: "mitra-01",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "WWW Day — Celebrating Global Connectivity",
+    description: "Today, we celebrate the invention that connected the world. Exploring how Mitra AI innovates, collaborates, and transforms lives through the web.",
+    category: "Brand Campaign",
+    image: "/worlds/create/mitra_01.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-www-activity-7356914794383233024-JBrQ?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-02",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "AI Meets Legacy — Rocket Software Codebases",
+    description: "Struggling with decades-old Rocket Software codebases written in PickBasic? Discover how RocketDev AI modernizes legacy systems with security and speed.",
+    category: "Enterprise AI",
+    image: "/worlds/create/mitra_02.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-rocketdevai-legacymodernization-activity-7348933599024357411-dtBx?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-03",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "Data & AI Innovations Across Australia",
+    description: "Powering Australia's finance and enterprise sector with AI-led modernization, data engineering, and agile cloud platforms.",
+    category: "Data & Cloud",
+    image: "/worlds/create/mitra_03.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-dataandai-innovatewithai-activity-7348213553423605760-4yOS?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-04",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "The 5 Stages of RocketDev AI Modernization",
+    description: "From AI-Curated Knowledge Repositories to Test Automation and Safe Cloud Migration — how Rocket UniVerse systems evolve into launchpads.",
+    category: "Content Design",
+    image: "/worlds/create/mitra_04.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7346136101155135488-01o8?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-05",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "Breaking 15+ Year-Old Legacy System Barriers",
+    description: "74% still rely on 15+ year-old systems. 71% can't find legacy talent. How AI closes knowledge gaps and decodes tribal engineering wisdom.",
+    category: "B2B Tech",
+    image: "/worlds/create/mitra_05.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7341321364886228992-UcAr?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-06",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "Solving Feature Delivery Pipeline Blockers",
+    description: "What's the biggest blocker in your delivery pipeline? Legacy complexity? RocketDev AI extracts and learns continuously from your codebase.",
+    category: "Graphic Design",
+    image: "/worlds/create/mitra_06.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7338437922494234624-h03w?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-07",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "How AI is Rewriting the Enterprise Legacy Playbook",
+    description: "Cut onboarding by 50%, resolve tickets 60% faster, and boost support efficiency by 40% with AI purpose-built for legacy ecosystems.",
+    category: "Editorial & Social",
+    image: "/worlds/create/mitra_07.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_rocketuniverse-unidata-mitraai-activity-7335904380057001984-cIcR?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-08",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "The Future of Rocket Universe & UniData",
+    description: "Imagine legacy systems that no longer slow you down. AI decodes business logic written 20 years ago so new developers ramp up in days.",
+    category: "Brand Communication",
+    image: "/worlds/create/mitra_08.jpg",
+    aspectRatio: "portrait",
+    source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-ai-activity-7332986644947451905-a0G5?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-09",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "Unlocking Legacy Code as an Innovation Engine",
+    description: "Your legacy code isn't the problem. How you unlock it is. Meet the AI engine delivering 50% faster onboarding and zero knowledge loss.",
+    category: "Content Design",
+    image: "/worlds/create/mitra_09.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_rocketdevai-enterpriseai-legacymodernization-activity-7331539829093990400-x8eY?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-10",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "Mitra Global Townhall 2025 — Across 7 Countries",
+    description: "Celebrating progress, global collaboration, and strategic AI initiatives with teams across the UK, Sri Lanka, Australia, and beyond.",
+    category: "Internal Brand",
+    image: "/worlds/create/mitra_10.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-townhall2025-activity-7322499043283140609-hjZl?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-11",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "Digital Banking UK — Next-Gen Account Opening",
+    description: "From days of paperwork to instant onboarding. How automation, biometrics, and AI achieve 70% faster onboarding in UK banking.",
+    category: "Fintech & Banking",
+    image: "/worlds/create/mitra_11.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_digitalbanking-mitraai-dataandai-activity-7316023558764130304-1aED?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  },
+  {
+    id: "mitra-12",
+    client: "Mitra Innovation",
+    platform: "LinkedIn",
+    title: "HyperDev AI — Software in 90 Days at 60% Lower Cost",
+    description: "Turning concepts into fully functional, enterprise-grade software in 90 days. Mitra AI is redefining the rules of software development.",
+    category: "AI Product",
+    image: "/worlds/create/mitra_12.jpg",
+    aspectRatio: "square",
+    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-dataandai-activity-7315261627501547522-OuCN?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+  }
+];
+
 // ─── CREATE ───────────────────────────────────────────────────────
 export const createProjects: Project[] = [
   {
@@ -73,28 +311,126 @@ export const createProjects: Project[] = [
     world: "CREATE",
     category: ["Graphic Design", "Content Design", "B2B", "Social Media"],
     role: "Graphic Designer",
-    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-www-activity-7356914794383233024-JBrQ",
+    source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-www-activity-7356914794383233024-JBrQ?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
     featured: true,
     description: "Designing digital content for an enterprise technology company communicating AI, RocketDev, data and digital-transformation topics. Complex enterprise technology topics transformed into clear, visually consistent LinkedIn communication.",
     tools: ["Figma", "Adobe Illustrator", "Photoshop"],
-    coverImage: "/worlds/mitra-content.jpg",
+    coverImage: "/worlds/create/mitra_07.jpg",
     year: "2024",
     context: "Designing digital content for an enterprise technology company communicating AI, RocketDev, data and digital-transformation topics.",
     challenge: "Complex enterprise technology topics needed to be transformed into clear, visually consistent LinkedIn communication.",
     execution: "Developed a visual hierarchy, brand consistency, technology-led imagery, and content framing for repeatable social-media layouts.",
+    media: [
+      {
+        url: "/worlds/create/mitra_01.jpg",
+        alt: "WWW Day Celebration",
+        aspectRatio: "square",
+        type: "image",
+        title: "WWW Day — Celebrating Global Connectivity",
+        source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-www-activity-7356914794383233024-JBrQ?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_02.jpg",
+        alt: "AI Meets Legacy",
+        aspectRatio: "square",
+        type: "image",
+        title: "Modernizing Rocket Software Codebases with AI",
+        source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-rocketdevai-legacymodernization-activity-7348933599024357411-dtBx?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_03.jpg",
+        alt: "Data & AI Australia",
+        aspectRatio: "square",
+        type: "image",
+        title: "Data & AI Innovations Across Australia",
+        source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-dataandai-innovatewithai-activity-7348213553423605760-4yOS?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_04.jpg",
+        alt: "5 Stages of RocketDev AI",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "The 5 Stages of RocketDev AI Modernization",
+        source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7346136101155135488-01o8?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_05.jpg",
+        alt: "Breaking Legacy System Barriers",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Breaking 15+ Year-Old Legacy System Barriers",
+        source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7341321364886228992-UcAr?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_06.jpg",
+        alt: "Pipeline Accelerators",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Solving Feature Delivery Pipeline Blockers",
+        source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7338437922494234624-h03w?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_07.jpg",
+        alt: "Rewriting the Legacy Playbook",
+        aspectRatio: "square",
+        type: "image",
+        title: "How AI is Rewriting the Enterprise Legacy Playbook",
+        source: "https://www.linkedin.com/posts/mitra-innovation_rocketuniverse-unidata-mitraai-activity-7335904380057001984-cIcR?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_08.jpg",
+        alt: "Future of Rocket Universe",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "The Future of Rocket Universe & UniData",
+        source: "https://www.linkedin.com/posts/mitra-innovation_rocketdev-ai-activity-7332986644947451905-a0G5?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_09.jpg",
+        alt: "Unlocking Legacy Code",
+        aspectRatio: "square",
+        type: "image",
+        title: "Unlocking Legacy Code as an Innovation Engine",
+        source: "https://www.linkedin.com/posts/mitra-innovation_rocketdevai-enterpriseai-legacymodernization-activity-7331539829093990400-x8eY?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_10.jpg",
+        alt: "Mitra Global Townhall 2025",
+        aspectRatio: "square",
+        type: "image",
+        title: "Mitra Global Townhall 2025 — Across 7 Countries",
+        source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-townhall2025-activity-7322499043283140609-hjZl?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_11.jpg",
+        alt: "Digital Banking UK",
+        aspectRatio: "square",
+        type: "image",
+        title: "Digital Banking UK — Next-Gen Account Opening",
+        source: "https://www.linkedin.com/posts/mitra-innovation_digitalbanking-mitraai-dataandai-activity-7316023558764130304-1aED?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      },
+      {
+        url: "/worlds/create/mitra_12.jpg",
+        alt: "HyperDev AI",
+        aspectRatio: "square",
+        type: "image",
+        title: "HyperDev AI — Software in 90 Days at 60% Lower Cost",
+        source: "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-dataandai-activity-7315261627501547522-OuCN?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
+      }
+    ],
     galleryUrls: [
-      "https://www.linkedin.com/posts/mitra-innovation_mitraai-www-activity-7356914794383233024-JBrQ",
-      "https://www.linkedin.com/posts/mitra-innovation_mitraai-rocketdevai-legacymodernization-activity-7348933599024357411-dtBx",
-      "https://www.linkedin.com/posts/mitra-innovation_mitraai-dataandai-innovatewithai-activity-7348213553423605760-4yOS",
-      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7346136101155135488-01o8",
-      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7341321364886228992-UcAr",
-      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7338437922494234624-h03w",
-      "https://www.linkedin.com/posts/mitra-innovation_rocketuniverse-unidata-mitraai-activity-7335904380057001984-cIcR",
-      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-ai-activity-7332986644947451905-a0G5",
-      "https://www.linkedin.com/posts/mitra-innovation_rocketdevai-enterpriseai-legacymodernization-activity-7331539829093990400-x8eY",
-      "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-townhall2025-activity-7322499043283140609-hjZl",
-      "https://www.linkedin.com/posts/mitra-innovation_digitalbanking-mitraai-dataandai-activity-7316023558764130304-1aED",
-      "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-dataandai-activity-7315261627501547522-OuCN"
+      "https://www.linkedin.com/posts/mitra-innovation_mitraai-www-activity-7356914794383233024-JBrQ?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_mitraai-rocketdevai-legacymodernization-activity-7348933599024357411-dtBx?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_mitraai-dataandai-innovatewithai-activity-7348213553423605760-4yOS?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7346136101155135488-01o8?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7341321364886228992-UcAr?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-activity-7338437922494234624-h03w?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_rocketuniverse-unidata-mitraai-activity-7335904380057001984-cIcR?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_rocketdev-ai-activity-7332986644947451905-a0G5?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_rocketdevai-enterpriseai-legacymodernization-activity-7331539829093990400-x8eY?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-townhall2025-activity-7322499043283140609-hjZl?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_digitalbanking-mitraai-dataandai-activity-7316023558764130304-1aED?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link",
+      "https://www.linkedin.com/posts/mitra-innovation_mitraai-innovatewithai-dataandai-activity-7315261627501547522-OuCN?utm_medium=ios_app&rcm=ACoAADE7BLcBPEO_J5ihH1spuuCoS1buwglNl6c&utm_source=social_share_send&utm_campaign=copy_link"
     ],
     worksInside: 12,
   },
@@ -162,16 +498,96 @@ export const createProjects: Project[] = [
   },
   {
     id: "sync2-brand",
-    title: "Sync2 Brand",
+    title: "Sync2 Brand — Identity, Systems & Social Campaigns",
     world: "CREATE",
-    category: ["Branding", "Marketing", "Content Design"],
+    category: ["Branding", "Graphic Design", "Content Design", "Social Media", "Paid Media"],
     role: "Brand Designer",
-    source: "#", // MANUAL_PORTFOLIO_ASSETS
-    featured: false,
-    description: "Complete branding, marketing, and content design system for Sync2.",
-    tools: ["Illustrator", "Figma"],
-    coverImage: "/worlds/sync2-branding.jpg",
+    source: "https://www.instagram.com/p/DTz1hSwj5SI/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+    featured: true,
+    description: "Complete branding, digital marketing, and systematic social media content for Sync2. Translating core value propositions into high-converting social designs, search positioning, and paid advertising systems.",
+    tools: ["Illustrator", "Figma", "Photoshop", "Instagram", "Meta Ads"],
+    coverImage: "/worlds/create/sync2_06.jpg",
     year: "2024",
+    context: "Sync2 operates as a modern digital branding, immersive experience, and growth studio.",
+    challenge: "Establishing visual authority and translating multi-disciplinary services (branding, AR, SEO, paid media) into engaging, unified social media assets.",
+    execution: "Created a modern typographic and grid-based visual design language for Instagram. Produced carousels, campaign frames, and value proposition posts that drive engagement.",
+    media: [
+      {
+        url: "/worlds/create/sync2_01.jpg",
+        alt: "Search Visibility & SEO Growth",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Search Visibility & SEO Growth",
+        source: "https://www.instagram.com/p/DTz1hSwj5SI/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_02.jpg",
+        alt: "Brand Communication Architecture",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Brand Communication Architecture",
+        source: "https://www.instagram.com/p/DTxPk-IiTdm/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_03.jpg",
+        alt: "Targeted Paid Advertising",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Targeted Paid Advertising Across Social & Search",
+        source: "https://www.instagram.com/p/DTsF_Nkgcgi/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_04.jpg",
+        alt: "End-to-End Social Management",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "End-to-End Social Media Management",
+        source: "https://www.instagram.com/p/DTphiJsEqBm/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_05.jpg",
+        alt: "Brand Clarity & Identity",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Brand Clarity & Systematic Identity",
+        source: "https://www.instagram.com/p/DTm8ZeyDLBq/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_06.jpg",
+        alt: "Strategy to Screens System",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Strategy to Screens Visual Identity",
+        source: "https://www.instagram.com/p/DTkc2Cyj13A/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_07.jpg",
+        alt: "Ideas Synced into Real Output",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Ideas Synced into Real Outcomes",
+        source: "https://www.instagram.com/p/DTjzjNkFw3i/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      },
+      {
+        url: "/worlds/create/sync2_08.jpg",
+        alt: "Digital Products & AR Experiences",
+        aspectRatio: "portrait",
+        type: "image",
+        title: "Digital Products & AR Experiences",
+        source: "https://www.instagram.com/p/DTH1gD1EWQx/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+      }
+    ],
+    galleryUrls: [
+      "https://www.instagram.com/p/DTz1hSwj5SI/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTxPk-IiTdm/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTsF_Nkgcgi/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTphiJsEqBm/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTm8ZeyDLBq/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTkc2Cyj13A/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTjzjNkFw3i/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "https://www.instagram.com/p/DTH1gD1EWQx/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA=="
+    ],
+    worksInside: 8,
   },
   {
     id: "product-design-commercial",
